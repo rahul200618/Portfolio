@@ -238,7 +238,7 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
     <h2 class="section-title reveal">WHAT I'VE <span class="dim">BUILT</span></h2>
     <div class="projects-grid">
 
-      <div class="project-card featured reveal" id="pc1">
+      <div class="project-card featured reveal" id="pc1" onclick="window.open('https://symbio-insight-app-2.onrender.com', '_blank')" style="cursor:pointer;">
         <div class="card-top-bar bar-web"></div>
         <div class="featured-inner" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
           <div>
@@ -254,11 +254,16 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
             </ul>
           </div>
           <div style="display:flex;flex-direction:column;justify-content:space-between;">
-            <div style="background:rgba(0,212,255,0.04);border:1px solid rgba(0,212,255,0.1);border-radius:16px;padding:24px;flex:1;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
-              <div style="text-align:center;">
-                <div style="font-size:56px;margin-bottom:12px;">🧬</div>
-                <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--c1);">LIVE ON RENDER</div>
-                <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-top:4px;">symbio-insight-app-2.onrender.com</div>
+            <div style="background:rgba(0,212,255,0.04);border:1px solid rgba(0,212,255,0.1);border-radius:16px;padding:24px;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;margin-bottom:20px;overflow:hidden;cursor:pointer;transition:all 0.3s;" onclick="window.open('https://symbio-insight-app-2.onrender.com', '_blank')" onmouseover="this.style.borderColor='rgba(0,212,255,0.4)';this.style.background='rgba(0,212,255,0.08)';this.style.boxShadow='0 12px 40px rgba(0,212,255,0.15)';" onmouseout="this.style.borderColor='rgba(0,212,255,0.1)';this.style.background='rgba(0,212,255,0.04)';this.style.boxShadow='';">
+              <div style="position:relative;width:100%;flex:1;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+                <img src="./symbio-preview.png" alt="Symbio Insight Dashboard" style="width:100%;height:100%;object-fit:cover;border-radius:8px;opacity:0.95;box-shadow:0 4px 12px rgba(0,212,255,0.2);" onerror="this.style.display='none';">
+              </div>
+              <div style="display:flex;gap:16px;align-items:center;justify-content:space-between;width:100%;flex-wrap:wrap;">
+                <div style="text-align:left;">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--c1);">LIVE ON RENDER</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-top:2px;">symbio-insight-app-2.onrender.com</div>
+                </div>
+                <div style="background:rgba(0,212,255,0.15);border:1px solid rgba(0,212,255,0.3);padding:8px 14px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--c1);backdrop-filter:blur(4px);pointer-events:none;white-space:nowrap;">↗ CLICK TO VISIT</div>
               </div>
             </div>
             <div class="project-footer">
@@ -269,20 +274,38 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
         </div>
       </div>
 
-      <div class="project-card reveal reveal-delay-1">
+      <div class="project-card featured reveal reveal-delay-1" onclick="window.open('https://ai.studio/apps/drive/1LW3wz8j-uInj_2CIDa3WJLV6lNqUYwNf?fullscreenApplet=true', '_blank')" style="cursor:pointer;">
         <div class="card-top-bar bar-cinema"></div>
-        <div class="project-no">PROJECT 02</div>
-        <div class="project-title">Curated Cinema</div>
-        <div class="project-type">// INDIE FILM STREAMING PLATFORM</div>
-        <p class="project-desc">Director-first streaming platform. Cinema discovered through curation, not algorithms — with direct filmmaker support.</p>
-        <ul class="project-bullets">
-          <li>Free film streaming + optional filmmaker donations</li>
-          <li>Offline screening ticket booking system</li>
-          <li>Director profiles & curated theme collections</li>
-        </ul>
-        <div class="project-footer">
-          <div class="tech-stack"><span class="tech-tag">Full Stack</span><span class="tech-tag">UI/UX</span><span class="tech-tag">JavaScript</span></div>
-          <a class="project-link" href="https://ai.studio/apps/drive/1LW3wz8j-uInj_2CIDa3WJLV6lNqUYwNf?fullscreenApplet=true" target="_blank">↗ Live</a>
+        <div class="featured-inner" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+          <div>
+            <div class="project-no">PROJECT 02 · STREAMING</div>
+            <div class="project-title">Curated Cinema</div>
+            <div class="project-type">// INDIE FILM STREAMING PLATFORM</div>
+            <p class="project-desc">Director-first streaming platform. Cinema discovered through curation, not algorithms — with direct filmmaker support.</p>
+            <ul class="project-bullets">
+              <li>Free film streaming + optional filmmaker donations</li>
+              <li>Offline screening ticket booking system</li>
+              <li>Director profiles & curated theme collections</li>
+            </ul>
+          </div>
+          <div style="display:flex;flex-direction:column;justify-content:space-between;">
+            <div style="background:rgba(124,58,237,0.04);border:1px solid rgba(124,58,237,0.1);border-radius:16px;padding:24px;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;margin-bottom:20px;overflow:hidden;cursor:pointer;transition:all 0.3s;" onmouseover="this.style.borderColor='rgba(124,58,237,0.4)';this.style.background='rgba(124,58,237,0.08)';this.style.boxShadow='0 12px 40px rgba(124,58,237,0.15)';" onmouseout="this.style.borderColor='rgba(124,58,237,0.1)';this.style.background='rgba(124,58,237,0.04)';this.style.boxShadow='';">
+              <div style="position:relative;width:100%;flex:1;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+                <img src="./cinema-preview.png" alt="Curated Cinema Platform" style="width:100%;height:100%;object-fit:cover;border-radius:8px;opacity:0.95;box-shadow:0 4px 12px rgba(124,58,237,0.2);" onerror="this.style.display='none';">
+              </div>
+              <div style="display:flex;gap:16px;align-items:center;justify-content:space-between;width:100%;flex-wrap:wrap;">
+                <div style="text-align:left;">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#a78bfa;">LIVE DEMO</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-top:2px;">ai.studio/apps/drive</div>
+                </div>
+                <div style="background:rgba(124,58,237,0.15);border:1px solid rgba(124,58,237,0.3);padding:8px 14px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:10px;color:#a78bfa;backdrop-filter:blur(4px);pointer-events:none;white-space:nowrap;">↗ CLICK TO VISIT</div>
+              </div>
+            </div>
+            <div class="project-footer">
+              <div class="tech-stack"><span class="tech-tag">Full Stack</span><span class="tech-tag">UI/UX</span><span class="tech-tag">JavaScript</span></div>
+              <a class="project-link" href="https://ai.studio/apps/drive/1LW3wz8j-uInj_2CIDa3WJLV6lNqUYwNf?fullscreenApplet=true" target="_blank">↗ Live</a>
+            </div>
+          </div>
         </div>
       </div>
 
