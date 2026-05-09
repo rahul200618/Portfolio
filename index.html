@@ -82,6 +82,12 @@ section{position:relative;z-index:10;padding:100px 60px;min-height:100vh;display
 .bar-cinema{background:linear-gradient(90deg,var(--c2),var(--c5));}
 .bar-data{background:linear-gradient(90deg,var(--c1),var(--c2));}
 .bar-game{background:linear-gradient(90deg,var(--c3),var(--c1));}
+.bar-cyber{background:linear-gradient(90deg,#a78bfa,var(--c5));}
+.bar-eng{background:linear-gradient(90deg,var(--c4),var(--c5));}
+.bar-ai{background:linear-gradient(90deg,var(--c3),var(--c2));}
+.in-progress-badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;padding:3px 10px;border-radius:100px;background:rgba(245,158,11,0.12);color:var(--c4);border:1px solid rgba(245,158,11,0.3);margin-left:10px;vertical-align:middle;animation:pulse 2s infinite;}
+.chip-red{color:var(--c5);border-color:rgba(239,68,68,0.4);background:rgba(239,68,68,0.07);}
+.chip-red:hover{box-shadow:0 8px 30px rgba(239,68,68,0.2);}
 .project-no{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:0.15em;margin-bottom:10px;}
 .project-title{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:1px;color:#fff;margin-bottom:6px;}
 .project-type{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--c1);letter-spacing:0.1em;margin-bottom:16px;}
@@ -196,12 +202,12 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
 <section id="hero">
   <div class="hero-eyebrow">// AVAILABLE FOR OPPORTUNITIES · 2025</div>
   <h1 class="hero-name">RAHUL<br><span class="accent"></span></h1>
-  <p class="hero-subtitle">Full-Stack Developer & Data Scientist passionate about AI-powered applications, cybersecurity, and building scalable solutions with Python, JavaScript, and SQL.</p>
+  <p class="hero-subtitle">Cybersecurity-focused developer building expertise in VAPT, ethical hacking, secure API design & OWASP Top 10 — with a strong foundation in full-stack development, data science, and AI-powered solutions.</p>
   <div class="hero-domains">
-    <span class="domain-chip chip-blue">Data Analytics</span>
+    <span class="domain-chip chip-red">🛡️ Cybersecurity</span>
     <span class="domain-chip chip-green">Data Science</span>
     <span class="domain-chip chip-yellow">Full Stack Dev</span>
-    <span class="domain-chip chip-purple">Cybersecurity</span>
+    <span class="domain-chip chip-blue">Data Analytics</span>
   </div>
   <div class="hero-cta">
     <a href="#projects" class="btn-primary">View Projects</a>
@@ -217,12 +223,12 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
       <div class="about-text reveal">
         <span class="section-tag">01 / About</span>
         <h2 class="section-title">WHO I <span class="dim">AM</span></h2>
-        <p>I'm <strong>Rahul A</strong>, a B.Tech student in Digital Transformation at <strong>Atria University, Bengaluru</strong> (graduating 2028). I specialize in full-stack web development, data science, machine learning, and cybersecurity fundamentals — building analytical solutions that move from concept to production.</p>
-        <p>I've developed AI-powered bioinformatics platforms with Google Gemini integration, curated streaming applications with secure authentication, and data-driven dashboards using Excel, SQL, and Power BI. I combine technical depth with rapid prototyping — from hackathon sprints to enterprise-grade deployments.</p>
-        <p>Experienced in Python, JavaScript, SQL, and modern development tools. Certified through Tata/Forage industry simulations in cybersecurity and data visualization. Proven track record in designing responsive applications, implementing machine learning models, and delivering secure code practices.</p>
+        <p>I'm <strong>Rahul A</strong>, a B.Tech student in Digital Transformation at <strong>Atria University, Bengaluru</strong> (graduating 2028). My primary focus is <strong>Cybersecurity</strong> — building expertise in VAPT, ethical hacking, secure API design, and OWASP Top 10 — while maintaining a strong foundation in full-stack development, data science, and AI-powered solutions.</p>
+        <p>I've developed AI-powered bioinformatics platforms with Google Gemini integration, curated streaming applications with secure authentication, API-integrated multiplayer web games, and data-driven dashboards using SQL and Power BI. I combine technical depth with rapid prototyping — from hackathon sprints to enterprise-grade deployments.</p>
+        <p>Experienced in Python, JavaScript, SQL, and modern development tools. Certified through Tata/Forage industry simulations in cybersecurity and data visualization. Currently building projects spanning cybersecurity, AI sustainability platforms, IoT energy tracking, and EV powertrain engineering.</p>
       </div>
       <div class="stats-grid reveal reveal-delay-2">
-        <div class="stat-card"><div class="stat-num">6+</div><div class="stat-label">Projects Shipped</div></div>
+        <div class="stat-card"><div class="stat-num">8+</div><div class="stat-label">Projects Shipped</div></div>
         <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">Tech Domains</div></div>
         <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">Certifications</div></div>
         <div class="stat-card"><div class="stat-num">2028</div><div class="stat-label">Graduating</div></div>
@@ -341,6 +347,72 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
         </div>
       </div>
 
+      <div class="project-card reveal" onclick="window.open('https://github.com/rahul200618/Quiz-and-Ladder-A-Web-game', '_blank')" style="cursor:pointer;">
+        <div class="card-top-bar bar-game"></div>
+        <div class="project-no">PROJECT 05 · WEB GAME</div>
+        <div class="project-title">Quiz-and-Ladder</div>
+        <div class="project-type">// API-INTEGRATED MULTIPLAYER WEB GAME</div>
+        <p class="project-desc">A fun and interactive board game with a twist — answer trivia correctly to climb ladders or escape snakes, powered by live APIs.</p>
+        <ul class="project-bullets">
+          <li>Integrates OpenTDB (live trivia) and random.org (true random dice) APIs simultaneously</li>
+          <li>Two-player game with modal quiz system and bounce-back logic</li>
+        </ul>
+        <div class="project-footer">
+          <div class="tech-stack"><span class="tech-tag">JavaScript</span><span class="tech-tag">HTML/CSS</span><span class="tech-tag">OpenTDB API</span><span class="tech-tag">random.org API</span></div>
+          <a class="project-link" href="https://github.com/rahul200618/Quiz-and-Ladder-A-Web-game" target="_blank">↗ GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card reveal reveal-delay-1" onclick="window.open('https://github.com/rahul200618/AGRILOOP', '_blank')" style="cursor:pointer;">
+        <div class="card-top-bar bar-ai"></div>
+        <div class="project-no">PROJECT 06 · IN PROGRESS <span class="in-progress-badge">IN PROGRESS</span></div>
+        <div class="project-title">AgriLoop 2.0</div>
+        <div class="project-type">// AI + SUSTAINABILITY PLATFORM</div>
+        <p class="project-desc">AI-powered circular-economy platform that converts agricultural waste into income by classifying crop residue, suggesting profitable reuse options, and listing it on a digital marketplace.</p>
+        <ul class="project-bullets">
+          <li>AI-driven platform targeting agricultural waste and circular economy sustainability</li>
+          <li>Gemini 2.5 integration for waste classification, moisture & purity analysis</li>
+          <li>Digital biomass marketplace with bidding system and order tracking</li>
+          <li>Interactive geo-map intelligence with satellite view and district-level insights</li>
+        </ul>
+        <div class="project-footer">
+          <div class="tech-stack"><span class="tech-tag">AI</span><span class="tech-tag">Python</span><span class="tech-tag">React</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Full Stack</span></div>
+          <a class="project-link" href="https://github.com/rahul200618/AGRILOOP" target="_blank">↗ GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card reveal reveal-delay-2" onclick="window.open('https://github.com/rahul200618/Smart-Energy-Usage-Tracker', '_blank')" style="cursor:pointer;">
+        <div class="card-top-bar bar-data"></div>
+        <div class="project-no">PROJECT 07 · IN PROGRESS <span class="in-progress-badge">IN PROGRESS</span></div>
+        <div class="project-title">Smart Energy Usage Tracker</div>
+        <div class="project-type">// IOT + DATA ANALYTICS</div>
+        <p class="project-desc">Energy monitoring system with IoT data collection, usage analytics, and visualization for smarter consumption patterns.</p>
+        <ul class="project-bullets">
+          <li>Energy monitoring system with IoT data collection, usage analytics, and visualization</li>
+          <li>Collaborative project with real-time data tracking and consumption insights</li>
+        </ul>
+        <div class="project-footer">
+          <div class="tech-stack"><span class="tech-tag">IoT</span><span class="tech-tag">Python</span><span class="tech-tag">Data Analytics</span></div>
+          <a class="project-link" href="https://github.com/rahul200618/Smart-Energy-Usage-Tracker" target="_blank">↗ GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card reveal reveal-delay-3">
+        <div class="card-top-bar bar-eng"></div>
+        <div class="project-no">PROJECT 08 · ENGINEERING</div>
+        <div class="project-title">Formula Bharat 2026 — RevX Atria (E17)</div>
+        <div class="project-type">// EV POWERTRAIN & ELECTRICAL SYSTEMS</div>
+        <p class="project-desc">Core team member for Atria University's Formula Bharat 2026 electric race vehicle — hands-on exposure to EV drivetrain integration and electrical systems.</p>
+        <ul class="project-bullets">
+          <li>EV drivetrain integration and battery management system architecture</li>
+          <li>Circuit design and electrical harness for competition-grade electric vehicle</li>
+          <li>Cross-functional collaboration across mechanical, electrical, and software teams</li>
+        </ul>
+        <div class="project-footer">
+          <div class="tech-stack"><span class="tech-tag">EV Engineering</span><span class="tech-tag">Circuit Design</span><span class="tech-tag">Battery Systems</span></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -351,21 +423,21 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
     <span class="section-tag reveal">03 / Skills</span>
     <h2 class="section-title reveal">WHAT I <span class="dim">KNOW</span></h2>
     <div class="skills-layout">
-      <div class="skill-domain reveal">
-        <div class="domain-header"><div class="domain-icon icon-blue">📊</div><div><div class="domain-title">Data Analytics</div><div class="domain-sub">Insights from raw data</div></div></div>
-        <div class="skill-list"><span class="skill-badge sb-blue">SQL</span><span class="skill-badge sb-blue">Power BI</span><span class="skill-badge sb-blue">Excel (Advanced)</span><span class="skill-badge sb-blue">Data Cleaning</span><span class="skill-badge sb-blue">EDA</span><span class="skill-badge sb-blue">Data Visualization</span><span class="skill-badge sb-blue">ETL</span></div>
+      <div class="skill-domain reveal" style="border-color:rgba(239,68,68,0.2);">
+        <div class="domain-header"><div class="domain-icon" style="background:rgba(239,68,68,0.12);">🛡️</div><div><div class="domain-title">Cybersecurity <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--c5);letter-spacing:0.1em;margin-left:8px;">PRIMARY</span></div><div class="domain-sub">Building expertise · In Progress</div></div></div>
+        <div class="skill-list"><span class="skill-badge sb-purple">VAPT</span><span class="skill-badge sb-purple">Ethical Hacking</span><span class="skill-badge sb-purple">Kali Linux</span><span class="skill-badge sb-purple">Network Security</span><span class="skill-badge sb-purple">OWASP Top 10</span><span class="skill-badge sb-purple">CyberOps</span><span class="skill-badge sb-purple">Incident Response</span><span class="skill-badge sb-purple">Secure Coding</span><span class="skill-badge sb-purple">JWT Auth & Secure API Design</span><span class="skill-badge sb-purple">Anomaly Detection</span><span class="skill-badge sb-purple">VM Setup</span></div>
       </div>
       <div class="skill-domain reveal reveal-delay-1">
-        <div class="domain-header"><div class="domain-icon icon-green">🤖</div><div><div class="domain-title">Data Science & AI</div><div class="domain-sub">Models, ML & Generative AI</div></div></div>
-        <div class="skill-list"><span class="skill-badge sb-green">Python</span><span class="skill-badge sb-green">Pandas & NumPy</span><span class="skill-badge sb-green">ML Fundamentals</span><span class="skill-badge sb-green">Google Gemini API</span><span class="skill-badge sb-green">Regression</span><span class="skill-badge sb-green">Classification</span><span class="skill-badge sb-green">GenAI</span></div>
+        <div class="domain-header"><div class="domain-icon icon-green">🤖</div><div><div class="domain-title">Data Science & ML</div><div class="domain-sub">Models, ML & Generative AI</div></div></div>
+        <div class="skill-list"><span class="skill-badge sb-green">Python</span><span class="skill-badge sb-green">Pandas & NumPy</span><span class="skill-badge sb-green">Scikit-learn</span><span class="skill-badge sb-green">Supervised & Unsupervised Learning</span><span class="skill-badge sb-green">Ensemble Methods</span><span class="skill-badge sb-green">Dimensionality Reduction</span><span class="skill-badge sb-green">Anomaly Detection</span><span class="skill-badge sb-green">Google Gemini API</span><span class="skill-badge sb-green">GenAI</span></div>
       </div>
       <div class="skill-domain reveal reveal-delay-2">
         <div class="domain-header"><div class="domain-icon icon-yellow">⚡</div><div><div class="domain-title">Full Stack Dev</div><div class="domain-sub">Frontend to backend</div></div></div>
-        <div class="skill-list"><span class="skill-badge sb-yellow">HTML5 & CSS3</span><span class="skill-badge sb-yellow">JavaScript</span><span class="skill-badge sb-yellow">Python Backend</span><span class="skill-badge sb-yellow">MongoDB</span><span class="skill-badge sb-yellow">Firebase</span><span class="skill-badge sb-yellow">Git & GitHub</span><span class="skill-badge sb-yellow">REST APIs</span><span class="skill-badge sb-yellow">Responsive Design</span></div>
+        <div class="skill-list"><span class="skill-badge sb-yellow">React 18</span><span class="skill-badge sb-yellow">Vite</span><span class="skill-badge sb-yellow">Tailwind CSS</span><span class="skill-badge sb-yellow">Node.js</span><span class="skill-badge sb-yellow">Express.js</span><span class="skill-badge sb-yellow">REST APIs</span><span class="skill-badge sb-yellow">MongoDB Atlas</span><span class="skill-badge sb-yellow">SQLite + Sequelize</span><span class="skill-badge sb-yellow">Firebase</span><span class="skill-badge sb-yellow">HTML5/CSS3</span><span class="skill-badge sb-yellow">JavaScript</span><span class="skill-badge sb-yellow">GitHub Actions CI/CD</span><span class="skill-badge sb-yellow">Render Deployment</span></div>
       </div>
       <div class="skill-domain reveal reveal-delay-3">
-        <div class="domain-header"><div class="domain-icon icon-purple">🛡️</div><div><div class="domain-title">Cybersecurity</div><div class="domain-sub">Secure systems</div></div></div>
-        <div class="skill-list"><span class="skill-badge sb-purple">Threat Analysis</span><span class="skill-badge sb-purple">Secure Coding</span><span class="skill-badge sb-purple">OWASP Top 10</span><span class="skill-badge sb-purple">Network Security</span><span class="skill-badge sb-purple">Vulnerability Concepts</span><span class="skill-badge sb-purple">Incident Response</span></div>
+        <div class="domain-header"><div class="domain-icon icon-blue">🔧</div><div><div class="domain-title">Tools & Platforms</div><div class="domain-sub">Dev environment & workflow</div></div></div>
+        <div class="skill-list"><span class="skill-badge sb-blue">GitHub</span><span class="skill-badge sb-blue">Kali Linux</span><span class="skill-badge sb-blue">VS Code</span><span class="skill-badge sb-blue">Postman</span><span class="skill-badge sb-blue">MongoDB</span><span class="skill-badge sb-blue">SQL</span><span class="skill-badge sb-blue">Firebase</span><span class="skill-badge sb-blue">Power BI</span></div>
       </div>
     </div>
   </div>
@@ -377,10 +449,10 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
     <span class="section-tag reveal">04 / Certifications</span>
     <h2 class="section-title reveal">CREDENTIALS <span class="dim">&amp; COURSES</span></h2>
     <div class="certs-grid">
-      <div class="cert-card reveal"><div class="cert-dot" style="background:var(--c1);box-shadow:0 0 8px var(--c1);"></div><div><div class="cert-name">GenAI Powered Data Analytics Job Simulation</div><div class="cert-provider">Tata · Forage · 2024</div></div></div>
-      <div class="cert-card reveal reveal-delay-1"><div class="cert-dot" style="background:#a78bfa;box-shadow:0 0 8px #a78bfa;"></div><div><div class="cert-name">Cybersecurity Analyst Job Simulation</div><div class="cert-provider">Tata · Forage · 2024</div></div></div>
-      <div class="cert-card reveal reveal-delay-2"><div class="cert-dot" style="background:var(--c1);box-shadow:0 0 8px var(--c1);"></div><div><div class="cert-name">Data Visualisation: Empowering Business with Effective Insights</div><div class="cert-provider">Tata · Forage · 2024</div></div></div>
-      <div class="cert-card reveal reveal-delay-3"><div class="cert-dot" style="background:var(--c3);box-shadow:0 0 8px var(--c3);"></div><div><div class="cert-name">India Sustainability Startathon</div><div class="cert-provider">The Future Founders Co. · 2024</div></div></div>
+      <div class="cert-card reveal"><div class="cert-dot" style="background:#a78bfa;box-shadow:0 0 8px #a78bfa;"></div><div><div class="cert-name">Cybersecurity Analyst Job Simulation</div><div class="cert-provider">Forage · Tata</div></div></div>
+      <div class="cert-card reveal reveal-delay-1"><div class="cert-dot" style="background:var(--c1);box-shadow:0 0 8px var(--c1);"></div><div><div class="cert-name">Data Visualisation: Empowering Business with Effective Insights</div><div class="cert-provider">Forage · Tata</div></div></div>
+      <div class="cert-card reveal reveal-delay-2"><div class="cert-dot" style="background:var(--c3);box-shadow:0 0 8px var(--c3);"></div><div><div class="cert-name">India Sustainability Startathon</div><div class="cert-provider">The Future Founders Co.</div></div></div>
+      <div class="cert-card reveal reveal-delay-3"><div class="cert-dot" style="background:var(--c4);box-shadow:0 0 8px var(--c4);"></div><div><div class="cert-name">STEM University Courses</div><div class="cert-provider">Atria University</div></div></div>
     </div>
   </div>
 </section>
@@ -397,13 +469,17 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
           <div class="tl-title">B.Tech in Digital Transformation</div>
           <div class="tl-sub">Atria University, Bengaluru</div>
           <div class="tl-date">2024 — 2028 (Expected)</div>
-          <div class="tl-desc">Focused on data science, AI, full-stack development, and cybersecurity. Building production-level projects across multiple domains.</div>
+          <div class="tl-desc">Primary focus on cybersecurity (VAPT, ethical hacking, OWASP Top 10). Building production-level projects across data science, AI, full-stack development, and EV engineering.</div>
         </div>
         <div class="timeline-item">
-          <div class="tl-title">Higher Secondary Education</div>
+          <div class="tl-title">Higher Secondary Education (Class 12)</div>
           <div class="tl-sub">Completed · 2024</div>
           <div class="tl-date">Graduated 2024</div>
-          <div class="tl-desc">Strong foundation in mathematics, computer science, and analytical thinking.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-title">Secondary Education (Class 10)</div>
+          <div class="tl-sub">Kendriya Vidyalaya Malleswaram, Bengaluru</div>
+          <div class="tl-date">Completed</div>
         </div>
       </div>
       <div class="reveal reveal-delay-2">
@@ -425,6 +501,12 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
           <div class="tl-sub">Tata · Forage</div>
           <div class="tl-date">2024</div>
           <div class="tl-desc">Created business intelligence dashboards and presented data-driven insights to stakeholders.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="tl-title">Formula Bharat 2026 — RevX Atria (E17)</div>
+          <div class="tl-sub">Atria University Racing Team</div>
+          <div class="tl-date">2025 — January 2026</div>
+          <div class="tl-desc">Core team member for Formula-style electric race vehicle; hands-on exposure to EV drivetrain integration, circuit design, and battery management systems.</div>
         </div>
       </div>
     </div>
