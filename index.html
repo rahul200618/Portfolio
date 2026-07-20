@@ -24,7 +24,10 @@ body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;over
 #cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid rgba(0,212,255,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width 0.2s,height 0.2s,border-color 0.2s;}
 
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 60px;background:linear-gradient(to bottom,rgba(5,8,16,0.95),transparent);backdrop-filter:blur(4px);}
+.nav-header{display:flex;align-items:center;justify-content:space-between;}
 .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:3px;color:var(--c1);display:flex;align-items:center;gap:12px;}
+.nav-toggle{display:none;background:transparent;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px;z-index:102;}
+.hamburger-bar{width:22px;height:2px;background:var(--c1);border-radius:2px;transition:all 0.3s ease;}
 .nav-links{display:flex;gap:36px;}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s;font-family:'JetBrains Mono',monospace;}
 .nav-links a:hover{color:var(--c1);}
@@ -182,15 +185,115 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
 ::-webkit-scrollbar-thumb:hover{background:var(--c1);}
 
+/* Custom cursor disable on touch / mobile devices */
+@media (max-width: 768px), (hover: none) {
+  #cursor, #cursor-ring { display: none !important; }
+  body, a, button, .project-card, .sub-project { cursor: auto !important; }
+}
+
 @media(max-width:768px){
-  nav{padding:16px 24px;}
-  section{padding:80px 24px;}
-  #hero{padding:80px 24px 40px;}
-  .about-grid,.skills-layout,.projects-grid,.certs-grid,.resume-layout{grid-template-columns:1fr;}
-  .project-card.featured{grid-column:span 1;}
-  .hero-name{font-size:72px;}
-  .contact-big{font-size:56px;}
-  .featured-inner{grid-template-columns:1fr!important;}
+  nav{
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px 24px;
+    background: rgba(5,8,16,0.96);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0,212,255,0.1);
+  }
+  .nav-header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-logo{
+    font-size: 24px;
+  }
+  .nav-toggle{
+    display: flex;
+  }
+  .nav-toggle.open .hamburger-bar:nth-child(1){
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-toggle.open .hamburger-bar:nth-child(2){
+    opacity: 0;
+  }
+  .nav-toggle.open .hamburger-bar:nth-child(3){
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .nav-links{
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+    padding: 12px 0 6px;
+    margin-top: 12px;
+    border-top: 1px solid rgba(0, 212, 255, 0.15);
+  }
+  .nav-links.open{
+    display: flex;
+    animation: dropDownAnim 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes dropDownAnim{
+    from{ opacity: 0; transform: translateY(-8px); }
+    to{ opacity: 1; transform: translateY(0); }
+  }
+  .nav-links a{
+    font-size: 13px;
+    padding: 12px 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    width: 100%;
+    display: block;
+  }
+  .nav-links a:last-child{
+    border-bottom: none;
+  }
+
+  section{ padding: 70px 20px; }
+  #hero{ padding: 90px 20px 40px; }
+  .hero-name{ font-size: clamp(48px, 12vw, 76px); }
+  .hero-subtitle{ font-size: 15px; line-height: 1.6; }
+  .hero-domains{ gap: 8px; }
+  .domain-chip{ font-size: 11px; padding: 6px 14px; }
+  
+  .hero-cta, .resume-download{
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  .hero-cta .btn-primary, .hero-cta .btn-ghost,
+  .resume-download .btn-primary, .resume-download .btn-ghost{
+    width: 100%;
+    text-align: center;
+  }
+
+  .about-grid, .skills-layout, .projects-grid, .certs-grid, .resume-layout{
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .project-card{ padding: 24px; }
+  .project-card.featured{ grid-column: span 1; }
+  .featured-inner{ grid-template-columns: 1fr!important; gap: 20px; }
+  
+  .sub-projects-grid{
+    grid-template-columns: 1fr!important;
+    gap: 16px!important;
+  }
+
+  .contact-big{ font-size: clamp(44px, 12vw, 76px); }
+  .contact-links{ flex-direction: column; width: 100%; max-width: 400px; margin: 0 auto; }
+  .contact-link{ width: 100%; justify-content: center; }
+
+  .skill-domain{ padding: 24px; }
+  .skill-badge{ font-size: 11px; padding: 5px 12px; }
+}
+
+@media(max-width:480px){
+  .stats-grid{ grid-template-columns: 1fr; gap: 12px; }
+  .stat-card{ padding: 20px; }
+  .stat-num{ font-size: 42px; }
+  .scroll-hint{ display: none; }
 }
 </style>
 </head>
@@ -201,8 +304,15 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
 <canvas id="three-canvas"></canvas>
 
 <nav>
-  <div class="nav-logo">PORTFOLIO</div>
-  <div class="nav-links">
+  <div class="nav-header">
+    <div class="nav-logo">PORTFOLIO</div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+  </div>
+  <div class="nav-links" id="nav-links">
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
     <a href="#experience">Experience</a>
@@ -443,7 +553,7 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
         <div class="project-title">AI & Full Stack Intern</div>
         <div class="project-type">// 6 PRODUCTION APPS SHIPPED · MAY 2026 — PRESENT</div>
         <p class="project-desc">Building and deploying full-stack web applications at a global software & AI company. Shipped 6 live production apps across education, agriculture, and enterprise domains.</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
+        <div class="sub-projects-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
           <div class="sub-project" onclick="event.stopPropagation();window.open('https://rankprediction.com','_blank')" style="cursor:pointer;">
             <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:2px;">
               <div class="sub-project-title" style="margin-bottom:0;">RankPrediction</div>
@@ -952,6 +1062,29 @@ window.addEventListener('scroll',()=>{
   secs.forEach(s=>{if(window.scrollY>=s.offsetTop-200)cur=s.id;});
   navAs.forEach(a=>{a.style.color=a.getAttribute('href')==='#'+cur?'var(--c1)':'';});
 });
+
+// Mobile Nav Dropdown Toggle
+const navToggle = document.getElementById('nav-toggle');
+const navLinksEl = document.getElementById('nav-links');
+if(navToggle && navLinksEl){
+  navToggle.addEventListener('click', (e)=>{
+    e.stopPropagation();
+    navToggle.classList.toggle('open');
+    navLinksEl.classList.toggle('open');
+  });
+  navLinksEl.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click', ()=>{
+      navToggle.classList.remove('open');
+      navLinksEl.classList.remove('open');
+    });
+  });
+  document.addEventListener('click', (e)=>{
+    if(!e.target.closest('nav')){
+      navToggle.classList.remove('open');
+      navLinksEl.classList.remove('open');
+    }
+  });
+}
 </script>
 </body>
 </html>
