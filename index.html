@@ -89,7 +89,17 @@ section{position:relative;z-index:10;padding:100px 60px;min-height:100vh;display
 .bar-cyber{background:linear-gradient(90deg,#a78bfa,var(--c5));}
 .bar-eng{background:linear-gradient(90deg,var(--c4),var(--c5));}
 .bar-ai{background:linear-gradient(90deg,var(--c3),var(--c2));}
+.bar-intern{background:linear-gradient(90deg,var(--c1),var(--c3));}
 .in-progress-badge{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.1em;padding:3px 10px;border-radius:100px;background:rgba(245,158,11,0.12);color:var(--c4);border:1px solid rgba(245,158,11,0.3);margin-left:10px;vertical-align:middle;animation:pulse 2s infinite;}
+.sub-project{padding:16px;background:rgba(0,212,255,0.03);border:1px solid var(--border);border-radius:12px;transition:all 0.2s;}
+.sub-project:hover{border-color:rgba(0,212,255,0.2);background:rgba(0,212,255,0.05);}
+.sub-project-title{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.5px;color:#fff;margin-bottom:2px;}
+.sub-project-type{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--c1);letter-spacing:0.08em;margin-bottom:6px;}
+.sub-project-desc{font-size:12px;color:#5a7590;line-height:1.6;margin-bottom:8px;}
+.sub-project-tags{display:flex;gap:4px;flex-wrap:wrap;}
+.sub-project-tags .tech-tag{font-size:9px;padding:2px 8px;}
+.live-btn{font-size:9px;color:var(--c1);border:1px solid rgba(0,212,255,0.3);background:rgba(0,212,255,0.08);padding:4px 10px;border-radius:6px;font-family:'JetBrains Mono',monospace;white-space:nowrap;margin-left:8px;transition:all 0.2s cubic-bezier(0.4,0,0.2,1);cursor:pointer;display:inline-flex;align-items:center;}
+.live-btn:hover{background:var(--c1);color:#0f172a;border-color:var(--c1);box-shadow:0 0 12px rgba(0,212,255,0.4);transform:translateY(-1px);}
 .chip-red{color:var(--c5);border-color:rgba(239,68,68,0.4);background:rgba(239,68,68,0.07);}
 .chip-red:hover{box-shadow:0 8px 30px rgba(239,68,68,0.2);}
 .project-no{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:0.15em;margin-bottom:10px;}
@@ -195,6 +205,7 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
     <a href="#skills">Skills</a>
     <a href="#certs">Certs</a>
     <a href="#resume">Resume</a>
@@ -204,9 +215,9 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-eyebrow">// AVAILABLE FOR OPPORTUNITIES · 2025</div>
+  <div class="hero-eyebrow">// AVAILABLE FOR OPPORTUNITIES · 2026</div>
   <h1 class="hero-name">RAHUL<br><span class="accent"></span></h1>
-  <p class="hero-subtitle">Cybersecurity-focused developer building expertise in VAPT, ethical hacking, secure API design & OWASP Top 10 — with a strong foundation in full-stack development, data science, and AI-powered solutions.</p>
+  <p class="hero-subtitle">AI & Full Stack Intern at <a href="https://openalgon.com" target="_blank" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">OpenAlgon</a> — shipping production web apps. Cybersecurity-focused developer building expertise in VAPT, ethical hacking, secure API design, and OWASP.</p>
   <div class="hero-domains">
     <span class="domain-chip chip-red">🛡️ Cybersecurity</span>
     <span class="domain-chip chip-green">Data Science</span>
@@ -227,12 +238,12 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
       <div class="about-text reveal">
         <span class="section-tag">01 / About</span>
         <h2 class="section-title">WHO I <span class="dim">AM</span></h2>
-        <p>I'm <strong>Rahul A</strong>, a B.Tech student in Digital Transformation at <strong>Atria University, Bengaluru</strong> (graduating 2028). My primary focus is <strong>Cybersecurity</strong> — building expertise in VAPT, ethical hacking, secure API design, and OWASP Top 10 — while maintaining a strong foundation in full-stack development, data science, and AI-powered solutions.</p>
-        <p>I've developed AI-powered bioinformatics platforms with Google Gemini integration, curated streaming applications with secure authentication, API-integrated multiplayer web games, and data-driven dashboards using SQL and Power BI. I combine technical depth with rapid prototyping — from hackathon sprints to enterprise-grade deployments.</p>
-        <p>Experienced in Python, JavaScript, SQL, and modern development tools. Certified through Tata/Forage industry simulations in cybersecurity and data visualization. Currently building projects spanning cybersecurity, AI sustainability platforms, IoT energy tracking, and EV powertrain engineering.</p>
+        <p>I'm <strong>Rahul A</strong>, a B.Tech student in Digital Transformation at <strong>Atria University, Bengaluru</strong> (graduating 2028). Currently interning as an <strong>AI & Full Stack Intern at <a href="https://openalgon.com" target="_blank" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">OpenAlgon</a> / <a href="https://decembay.com" target="_blank" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">Decembay Technologies</a></strong>, shipping production-grade full-stack web applications. My primary career domain is <strong>Cybersecurity</strong> — building expertise in VAPT, ethical hacking, secure API design, and OWASP.</p>
+        <p>At <a href="https://openalgon.com" target="_blank" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">OpenAlgon</a>, I've built and deployed 6 live production applications including an AI-powered counseling platform (rankprediction.com), agro ERP system (agro.openalgon.com), agriculture e-magazine portals (agriarchives.in & agricatalogues.in), EdTech portal (krishikuta.com), and immigration services portal (bluedotimmigrations.com).</p>
+        <p>Proficient in Python, SQL, JavaScript, TypeScript, React, Next.js, Supabase, TanStack, LLM Integration, and AI Agents/MCP. Certified through Tata/Forage industry simulations in cybersecurity analyst and data visualization. Active in hackathons and Formula Bharat EV engineering (RevXAtria E17 team).</p>
       </div>
       <div class="stats-grid reveal reveal-delay-2">
-        <div class="stat-card"><div class="stat-num">8+</div><div class="stat-label">Projects Shipped</div></div>
+        <div class="stat-card"><div class="stat-num">13+</div><div class="stat-label">Projects Shipped</div></div>
         <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">Tech Domains</div></div>
         <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">Certifications</div></div>
         <div class="stat-card"><div class="stat-num">2028</div><div class="stat-label">Graduating</div></div>
@@ -416,6 +427,83 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
           <div class="tech-stack"><span class="tech-tag">EV Engineering</span><span class="tech-tag">Circuit Design</span><span class="tech-tag">Battery Systems</span></div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <span class="section-tag reveal">03 / Experience</span>
+    <h2 class="section-title reveal">WHERE I'VE <span class="dim">WORKED</span></h2>
+    <div class="projects-grid">
+      <div class="project-card featured reveal" onclick="window.open('https://openalgon.com', '_blank')" style="cursor:pointer;">
+        <div class="card-top-bar bar-intern"></div>
+        <div class="project-no">INTERNSHIP · <a href="https://openalgon.com" target="_blank" onclick="event.stopPropagation();" style="color:var(--c1);text-decoration:none;transition:all 0.2s;position:relative;z-index:10;" onmouseover="this.style.color='#fff';this.style.textShadow='0 0 8px var(--c1)';" onmouseout="this.style.color='var(--c1)';this.style.textShadow='none';">OPENALGON</a> / <a href="https://decembay.com" target="_blank" onclick="event.stopPropagation();" style="color:var(--c1);text-decoration:none;transition:all 0.2s;position:relative;z-index:10;" onmouseover="this.style.color='#fff';this.style.textShadow='0 0 8px var(--c1)';" onmouseout="this.style.color='var(--c1)';this.style.textShadow='none';">DECEMBAY TECHNOLOGIES</a></div>
+        <div class="project-title">AI & Full Stack Intern</div>
+        <div class="project-type">// 6 PRODUCTION APPS SHIPPED · MAY 2026 — PRESENT</div>
+        <p class="project-desc">Building and deploying full-stack web applications at a global software & AI company. Shipped 6 live production apps across education, agriculture, and enterprise domains.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
+          <div class="sub-project" onclick="event.stopPropagation();window.open('https://rankprediction.com','_blank')" style="cursor:pointer;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:2px;">
+              <div class="sub-project-title" style="margin-bottom:0;">RankPrediction</div>
+              <div class="live-btn">↗ Live</div>
+            </div>
+            <div class="sub-project-type">AI COUNSELING INTELLIGENCE PLATFORM</div>
+            <div class="sub-project-desc">KCET & COMEDK rank prediction, cutoff analysis, AI counselor, and college discovery for Karnataka engineering aspirants.</div>
+            <div class="sub-project-tags"><span class="tech-tag">React 18</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Supabase</span><span class="tech-tag">Firebase Auth</span><span class="tech-tag">Recharts</span></div>
+          </div>
+          <div class="sub-project" onclick="event.stopPropagation();window.open('https://agriarchives.in','_blank')" style="cursor:pointer;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:2px;">
+              <div class="sub-project-title" style="margin-bottom:0;">AgriArchives</div>
+              <div class="live-btn">↗ Live</div>
+            </div>
+            <div class="sub-project-type">AGRICULTURE E-MAGAZINE PLATFORM</div>
+            <div class="sub-project-desc">International agriculture e-magazine with admin CMS, fuzzy search, SEO optimization, and Supabase file storage for PDFs.</div>
+            <div class="sub-project-tags"><span class="tech-tag">React 18</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Supabase</span><span class="tech-tag">Fuse.js</span><span class="tech-tag">Vercel</span></div>
+          </div>
+          <div class="sub-project" onclick="event.stopPropagation();window.open('https://www.agricatalogues.in/','_blank')" style="cursor:pointer;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:2px;">
+              <div class="sub-project-title" style="margin-bottom:0;">AgriCatalogues</div>
+              <div class="live-btn">↗ Live</div>
+            </div>
+            <div class="sub-project-type">RESEARCH E-MAGAZINE PORTAL</div>
+            <div class="sub-project-desc">Agriculture research journal with article management, editorial board profiles, real-time search, and responsive mobile UI.</div>
+            <div class="sub-project-tags"><span class="tech-tag">React</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Supabase</span><span class="tech-tag">shadcn/ui</span></div>
+          </div>
+          <div class="sub-project" onclick="event.stopPropagation();window.open('https://krishikuta.com/','_blank')" style="cursor:pointer;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:2px;">
+              <div class="sub-project-title" style="margin-bottom:0;">Krishikuta</div>
+              <div class="live-btn">↗ Live</div>
+            </div>
+            <div class="sub-project-type">AGRI-EDUCATION & CONSULTING PLATFORM</div>
+            <div class="sub-project-desc">Exam coaching (ICAR, K-CET), admission guidance, and professional consulting for agricultural DPRs and startup models.</div>
+            <div class="sub-project-tags"><span class="tech-tag">React 19</span><span class="tech-tag">TanStack</span><span class="tech-tag">Supabase</span><span class="tech-tag">Framer Motion</span></div>
+          </div>
+          <div class="sub-project" onclick="event.stopPropagation();window.open('https://agro.openalgon.com/','_blank')" style="cursor:pointer;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:2px;">
+              <div class="sub-project-title" style="margin-bottom:0;">Agro ERP (Field Flow)</div>
+              <div class="live-btn">↗ Live</div>
+            </div>
+            <div class="sub-project-type">MULTI-PLATFORM ERP · WEB + ANDROID + DESKTOP</div>
+            <div class="sub-project-desc">Enterprise ERP for agricultural businesses — multi-shop inventory, Razorpay billing, QR scanning, and 3D product visualization. Deployed as Web, Android (Capacitor), and Desktop (Tauri) from a single codebase.</div>
+            <div class="sub-project-tags"><span class="tech-tag">TanStack Start</span><span class="tech-tag">React 19</span><span class="tech-tag">Drizzle ORM</span><span class="tech-tag">Neon DB</span><span class="tech-tag">Capacitor</span><span class="tech-tag">Tauri</span><span class="tech-tag">Three.js</span><span class="tech-tag">Razorpay</span></div>
+          </div>
+          <div class="sub-project" onclick="event.stopPropagation();window.open('https://bluedotimmigrations.com','_blank')" style="cursor:pointer;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:2px;">
+              <div class="sub-project-title" style="margin-bottom:0;">Bluedot Immigrations</div>
+              <div class="live-btn">↗ Live</div>
+            </div>
+            <div class="sub-project-type">IMMIGRATION SERVICES PORTAL</div>
+            <div class="sub-project-desc">Comprehensive immigration services web app designed to streamline client onboarding and consultation management with a public portal and admin dashboard.</div>
+            <div class="sub-project-tags"><span class="tech-tag">TanStack Start</span><span class="tech-tag">React 19</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Tailwind CSS</span><span class="tech-tag">shadcn/ui</span><span class="tech-tag">Supabase</span><span class="tech-tag">Cloudflare Workers</span></div>
+          </div>
+        </div>
+        <div class="project-footer">
+          <div class="tech-stack"><span class="tech-tag">React</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Supabase</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">TanStack</span><span class="tech-tag">Tailwind CSS</span><span class="tech-tag">Vercel</span></div>
+          <a class="project-link" href="https://openalgon.com" target="_blank">↗ Company</a>
+        </div>
+      </div>
 
     </div>
   </div>
@@ -424,24 +512,24 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
 <!-- SKILLS -->
 <section id="skills">
   <div class="section-inner">
-    <span class="section-tag reveal">03 / Skills</span>
+    <span class="section-tag reveal">04 / Skills</span>
     <h2 class="section-title reveal">WHAT I <span class="dim">KNOW</span></h2>
     <div class="skills-layout">
       <div class="skill-domain reveal" style="border-color:rgba(239,68,68,0.2);">
-        <div class="domain-header"><div class="domain-icon" style="background:rgba(239,68,68,0.12);">🛡️</div><div><div class="domain-title">Cybersecurity <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--c5);letter-spacing:0.1em;margin-left:8px;">PRIMARY</span></div><div class="domain-sub">Building expertise · In Progress</div></div></div>
-        <div class="skill-list"><span class="skill-badge sb-purple">VAPT</span><span class="skill-badge sb-purple">Ethical Hacking</span><span class="skill-badge sb-purple">Kali Linux</span><span class="skill-badge sb-purple">Network Security</span><span class="skill-badge sb-purple">OWASP Top 10</span><span class="skill-badge sb-purple">CyberOps</span><span class="skill-badge sb-purple">Incident Response</span><span class="skill-badge sb-purple">Secure Coding</span><span class="skill-badge sb-purple">JWT Auth & Secure API Design</span><span class="skill-badge sb-purple">Anomaly Detection</span><span class="skill-badge sb-purple">VM Setup</span></div>
+        <div class="domain-header"><div class="domain-icon" style="background:rgba(239,68,68,0.12);">🛡️</div><div><div class="domain-title">Cybersecurity <span style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--c5);letter-spacing:0.1em;margin-left:8px;">PRIMARY CAREER DOMAIN</span></div><div class="domain-sub">VAPT · Ethical Hacking · Secure API Design</div></div></div>
+        <div class="skill-list"><span class="skill-badge sb-purple">Cybersecurity Fundamentals</span><span class="skill-badge sb-purple">Basic Threat & Vulnerability Concepts</span><span class="skill-badge sb-purple">Ethical Hacking</span><span class="skill-badge sb-purple">Kali Linux</span><span class="skill-badge sb-purple">Network Security</span><span class="skill-badge sb-purple">VM Setup</span><span class="skill-badge sb-purple">Secure Coding Awareness</span><span class="skill-badge sb-purple">JWT Auth & Secure API Design</span><span class="skill-badge sb-purple">VAPT</span><span class="skill-badge sb-purple">OWASP</span></div>
       </div>
       <div class="skill-domain reveal reveal-delay-1">
-        <div class="domain-header"><div class="domain-icon icon-green">🤖</div><div><div class="domain-title">Data Science & ML</div><div class="domain-sub">Models, ML & Generative AI</div></div></div>
-        <div class="skill-list"><span class="skill-badge sb-green">Python</span><span class="skill-badge sb-green">Pandas & NumPy</span><span class="skill-badge sb-green">Scikit-learn</span><span class="skill-badge sb-green">Supervised & Unsupervised Learning</span><span class="skill-badge sb-green">Ensemble Methods</span><span class="skill-badge sb-green">Dimensionality Reduction</span><span class="skill-badge sb-green">Anomaly Detection</span><span class="skill-badge sb-green">Google Gemini API</span><span class="skill-badge sb-green">GenAI</span></div>
+        <div class="domain-header"><div class="domain-icon icon-green">🤖</div><div><div class="domain-title">Data Science & ML</div><div class="domain-sub">Analytics, ML & Generative AI</div></div></div>
+        <div class="skill-list"><span class="skill-badge sb-green">Python (Pandas, NumPy, Scikit-learn)</span><span class="skill-badge sb-green">Supervised & Unsupervised Learning</span><span class="skill-badge sb-green">Ensemble Methods</span><span class="skill-badge sb-green">Dimensionality Reduction</span><span class="skill-badge sb-green">Anomaly Detection</span><span class="skill-badge sb-green">Excel & Power BI</span><span class="skill-badge sb-green">Data Visualization & Analytics</span><span class="skill-badge sb-green">Exploratory Data Analysis (EDA)</span><span class="skill-badge sb-green">Google Gemini API</span></div>
       </div>
       <div class="skill-domain reveal reveal-delay-2">
-        <div class="domain-header"><div class="domain-icon icon-yellow">⚡</div><div><div class="domain-title">Full Stack Dev</div><div class="domain-sub">Frontend to backend</div></div></div>
-        <div class="skill-list"><span class="skill-badge sb-yellow">React 18</span><span class="skill-badge sb-yellow">Vite</span><span class="skill-badge sb-yellow">Tailwind CSS</span><span class="skill-badge sb-yellow">Node.js</span><span class="skill-badge sb-yellow">Express.js</span><span class="skill-badge sb-yellow">REST APIs</span><span class="skill-badge sb-yellow">MongoDB Atlas</span><span class="skill-badge sb-yellow">SQLite + Sequelize</span><span class="skill-badge sb-yellow">Firebase</span><span class="skill-badge sb-yellow">HTML5/CSS3</span><span class="skill-badge sb-yellow">JavaScript</span><span class="skill-badge sb-yellow">GitHub Actions CI/CD</span><span class="skill-badge sb-yellow">Render Deployment</span></div>
+        <div class="domain-header"><div class="domain-icon icon-yellow">⚡</div><div><div class="domain-title">Full-Stack Development</div><div class="domain-sub">Frontend, Backend, Databases & Mobile/Desktop</div></div></div>
+        <div class="skill-list"><span class="skill-badge sb-yellow">Frontend (React/Vite, Next.js)</span><span class="skill-badge sb-yellow">Backend (Express, Node.js)</span><span class="skill-badge sb-yellow">MERN Stack</span><span class="skill-badge sb-yellow">TanStack</span><span class="skill-badge sb-yellow">Capacitor / Tauri</span><span class="skill-badge sb-yellow">LLM Integration & AI Agents / MCP</span><span class="skill-badge sb-yellow">Responsive Web/App UI/UX & Deployment</span><span class="skill-badge sb-yellow">Database & Authentication</span></div>
       </div>
       <div class="skill-domain reveal reveal-delay-3">
-        <div class="domain-header"><div class="domain-icon icon-blue">🔧</div><div><div class="domain-title">Tools & Platforms</div><div class="domain-sub">Dev environment & workflow</div></div></div>
-        <div class="skill-list"><span class="skill-badge sb-blue">GitHub</span><span class="skill-badge sb-blue">Kali Linux</span><span class="skill-badge sb-blue">VS Code</span><span class="skill-badge sb-blue">Postman</span><span class="skill-badge sb-blue">MongoDB</span><span class="skill-badge sb-blue">SQL</span><span class="skill-badge sb-blue">Firebase</span><span class="skill-badge sb-blue">Power BI</span></div>
+        <div class="domain-header"><div class="domain-icon icon-blue">🔧</div><div><div class="domain-title">Tools, Platforms & Languages</div><div class="domain-sub">Languages, Databases & Cloud Infrastructure</div></div></div>
+        <div class="skill-list"><span class="skill-badge sb-blue">Python</span><span class="skill-badge sb-blue">SQL</span><span class="skill-badge sb-blue">HTML/CSS</span><span class="skill-badge sb-blue">JavaScript & TypeScript</span><span class="skill-badge sb-blue">GitHub</span><span class="skill-badge sb-blue">Kali Linux</span><span class="skill-badge sb-blue">Postman</span><span class="skill-badge sb-blue">MongoDB</span><span class="skill-badge sb-blue">MySQL</span><span class="skill-badge sb-blue">Supabase</span><span class="skill-badge sb-blue">Firebase</span><span class="skill-badge sb-blue">Vercel</span><span class="skill-badge sb-blue">Cloudflare</span><span class="skill-badge sb-blue">English (Experienced)</span><span class="skill-badge sb-blue">Kannada (Experienced)</span><span class="skill-badge sb-blue">Hindi (Skillful)</span></div>
       </div>
     </div>
   </div>
@@ -450,7 +538,7 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
 <!-- CERTS -->
 <section id="certs">
   <div class="section-inner">
-    <span class="section-tag reveal">04 / Certifications</span>
+    <span class="section-tag reveal">05 / Certifications</span>
     <h2 class="section-title reveal">CREDENTIALS <span class="dim">&amp; COURSES</span></h2>
     <div class="certs-grid">
       <div class="cert-card reveal"><div class="cert-dot" style="background:#a78bfa;box-shadow:0 0 8px #a78bfa;"></div><div><div class="cert-name">Cybersecurity Analyst Job Simulation</div><div class="cert-provider">Forage · Tata</div></div></div>
@@ -464,7 +552,7 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
 <!-- RESUME -->
 <section id="resume">
   <div class="section-inner">
-    <span class="section-tag reveal">05 / Resume</span>
+    <span class="section-tag reveal">06 / Resume</span>
     <h2 class="section-title reveal">MY <span class="dim">JOURNEY</span></h2>
     <div class="resume-layout">
       <div class="reveal">
@@ -488,6 +576,12 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
       </div>
       <div class="reveal reveal-delay-2">
         <div class="resume-col-title"><div class="rc-icon icon-yellow">💼</div>Experience</div>
+        <div class="timeline-item">
+          <div class="tl-title">AI & Full Stack Intern</div>
+          <div class="tl-sub"><a href="https://openalgon.com" target="_blank" style="color:inherit;text-decoration:none;">OpenAlgon</a> / <a href="https://decembay.com" target="_blank" style="color:inherit;text-decoration:none;">Decembay Technologies</a></div>
+          <div class="tl-date">May 2026 — Present</div>
+          <div class="tl-desc">Building and deploying 6 production full-stack web apps using React, TypeScript, Supabase, and TanStack. Shipped live platforms across education tech, agriculture, and enterprise ERP domains.</div>
+        </div>
         <div class="timeline-item">
           <div class="tl-title">GenAI Data Analytics Simulation</div>
           <div class="tl-sub">Tata · Forage</div>
@@ -515,7 +609,7 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
       </div>
     </div>
     <div class="resume-download reveal">
-      <a href="Rahul_Resume4.1.pdf" class="btn-primary" download>Download Resume (PDF)</a>
+      <a href="Rahul_Resume4.3.pdf" class="btn-primary" download>Download Resume (PDF)</a>
       <a href="#contact" class="btn-ghost">Hire Me</a>
     </div>
   </div>
@@ -529,7 +623,7 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
     <p class="contact-sub">Open to internships, collaborations, and interesting problems. Let's build something that matters.</p>
     <div class="contact-links">
       <a class="contact-link" href="mailto:rahuldheeraj.anil@gmail.com"><span>✉️</span>rahuldheeraj.anil@gmail.com</a>
-      <a class="contact-link" href="https://linkedin.com/in/rahul-a-a5495b317" target="_blank"><span>💼</span>LinkedIn</a>
+      <a class="contact-link" href="http://www.linkedin.com/in/rahul-a-200618-ln" target="_blank"><span>💼</span>LinkedIn</a>
       <a class="contact-link" href="https://github.com/rahul200618" target="_blank"><span>🐙</span>GitHub</a>
     </div>
   </div>
