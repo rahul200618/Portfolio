@@ -326,7 +326,7 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
 <!-- HERO -->
 <section id="hero">
   <div class="hero-eyebrow">// AVAILABLE FOR OPPORTUNITIES · 2026</div>
-  <h1 class="hero-name">RAHUL<br><span class="accent"></span></h1>
+  <h1 class="hero-name">RAHUL <span class="accent">A</span></h1>
   <p class="hero-subtitle">AI & Full Stack Intern at <a href="https://openalgon.com" target="_blank" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">OpenAlgon</a> — shipping production web apps. Cybersecurity-focused developer building expertise in VAPT, ethical hacking, secure API design, and OWASP.</p>
   <div class="hero-domains">
     <span class="domain-chip chip-red">🛡️ Cybersecurity</span>
@@ -349,7 +349,7 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
         <span class="section-tag">01 / About</span>
         <h2 class="section-title">WHO I <span class="dim">AM</span></h2>
         <p>I'm <strong>Rahul A</strong>, a B.Tech student in Digital Transformation at <strong>Atria University, Bengaluru</strong> (graduating 2028). Currently interning as an <strong>AI & Full Stack Intern at <a href="https://openalgon.com" target="_blank" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">OpenAlgon</a> / <a href="https://decembay.com" target="_blank" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">Decembay Technologies</a></strong>, shipping production-grade full-stack web applications. My primary career domain is <strong>Cybersecurity</strong> — building expertise in VAPT, ethical hacking, secure API design, and OWASP.</p>
-        <p>At <a href="https://openalgon.com" target="_blank" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">OpenAlgon</a>, I've built and deployed 6 live production applications including an AI-powered counseling platform (rankprediction.com), agro ERP system (agro.openalgon.com), agriculture e-magazine portals (agriarchives.in & agricatalogues.in), EdTech portal (krishikuta.com), and immigration services portal (bluedotimmigrations.com).</p>
+        <p>At <a href="https://openalgon.com" target="_blank" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">OpenAlgon</a>, I've built and deployed 9 live production applications across education, healthcare, hospitality, agriculture, and enterprise operations — including rankprediction.com, agro.openalgon.com, agriarchives.in, agricatalogues.in, krishikuta.com, bluedotimmigrations.com, Shree Udupi Aramane, Abhyas Nepal, and Nepal CEE Predictor.</p>
         <p>Proficient in Python, SQL, JavaScript, TypeScript, React, Next.js, Supabase, TanStack, LLM Integration, and AI Agents/MCP. Certified through Tata/Forage industry simulations in cybersecurity analyst and data visualization. Active in hackathons and Formula Bharat EV engineering (RevXAtria E17 team).</p>
       </div>
       <div class="stats-grid reveal reveal-delay-2">
@@ -399,7 +399,10 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
             </div>
             <div class="project-footer">
               <div class="tech-stack"><span class="tech-tag">Python</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Gemini API</span><span class="tech-tag">Full Stack</span></div>
-              <a class="project-link" href="https://symbio-insight-app-2.onrender.com" target="_blank">↗ Live</a>
+              <div style="display:flex;gap:8px;">
+                <a class="project-link" href="https://github.com/rahul200618/symbio-insight-app" target="_blank">↗ GitHub</a>
+                <a class="project-link" href="https://symbio-insight-app-2.onrender.com" target="_blank">↗ Live</a>
+              </div>
             </div>
           </div>
         </div>
@@ -434,41 +437,46 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
             </div>
             <div class="project-footer">
               <div class="tech-stack"><span class="tech-tag">Full Stack</span><span class="tech-tag">UI/UX</span><span class="tech-tag">JavaScript</span></div>
-              <a class="project-link" href="https://ai.studio/apps/drive/1LW3wz8j-uInj_2CIDa3WJLV6lNqUYwNf?fullscreenApplet=true" target="_blank">↗ Live</a>
+              <div style="display:flex;gap:8px;">
+                <a class="project-link" href="https://github.com/rahul200618/CineIndie-App" target="_blank">↗ GitHub</a>
+                <a class="project-link" href="https://ai.studio/apps/drive/1LW3wz8j-uInj_2CIDa3WJLV6lNqUYwNf?fullscreenApplet=true" target="_blank">↗ Live</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="project-card reveal reveal-delay-2">
+      <div class="project-card reveal reveal-delay-2" onclick="window.open('https://github.com/rahul200618/wine-quality-ml', '_blank')" style="cursor:pointer;">
         <div class="card-top-bar bar-data"></div>
-        <div class="project-no">PROJECT 03</div>
-        <div class="project-title">BI Dashboards</div>
-        <div class="project-type">// DATA ANALYTICS & VISUALIZATION</div>
-        <p class="project-desc">Multiple Power BI and Excel dashboards surfacing real business insights from raw datasets.</p>
+        <div class="project-no">PROJECT 03 · MACHINE LEARNING</div>
+        <div class="project-title">Wine Quality ML Pipeline</div>
+        <div class="project-type">// ZERO-LEAKAGE SUPERVISED PIPELINE · AUC 0.816</div>
+        <p class="project-desc">End-to-end supervised learning pipeline applied to 6,497 UCI wine samples, benchmarking 4 models with zero-leakage preprocessing.</p>
         <ul class="project-bullets">
-          <li>Interactive Power BI dashboards for business reporting</li>
-          <li>Advanced SQL for data extraction and transformation</li>
-          <li>Presented findings to non-technical audiences</li>
+          <li>Stratified 60/20/20 train-val-test split preserving class distribution on imbalanced target</li>
+          <li>StandardScaler fit strictly on training split to eliminate test information leakage</li>
+          <li>Benchmarked Linear/Logistic Regression and tuned k-NN: achieved AUC-ROC of 0.816</li>
         </ul>
         <div class="project-footer">
-          <div class="tech-stack"><span class="tech-tag">Power BI</span><span class="tech-tag">SQL</span><span class="tech-tag">Excel</span></div>
+          <div class="tech-stack"><span class="tech-tag">Python</span><span class="tech-tag">Scikit-learn</span><span class="tech-tag">Pandas</span><span class="tech-tag">StandardScaler</span><span class="tech-tag">AUC 0.816</span></div>
+          <a class="project-link" href="https://github.com/rahul200618/wine-quality-ml" target="_blank">↗ GitHub</a>
         </div>
       </div>
 
-      <div class="project-card reveal reveal-delay-3">
-        <div class="card-top-bar bar-game"></div>
-        <div class="project-no">PROJECT 04</div>
-        <div class="project-title">Game Projects</div>
-        <div class="project-type">// PYTHON & JAVASCRIPT GAMES</div>
-        <p class="project-desc">Quiz-and-Ladder (browser web game) and Console Pac-Man demonstrating OOP design and algorithmic thinking.</p>
+      <div class="project-card reveal reveal-delay-3" onclick="window.open('https://github.com/rahul200618/Minimal-Digital-Cash-System-Cryptography', '_blank')" style="cursor:pointer;">
+        <div class="card-top-bar bar-cyber"></div>
+        <div class="project-no">PROJECT 04 · CYBERSECURITY</div>
+        <div class="project-title">Minimal Digital Cash Protocol</div>
+        <div class="project-type">// CRYPTOGRAPHIC LEDGER & 6-VECTOR ATTACK SUITE</div>
+        <p class="project-desc">Tamper-evident append-only ledger in Python featuring secp256k1 ECDSA wallets, SHA-256 hash chains, and automated exploit tests.</p>
         <ul class="project-bullets">
-          <li>Quiz-and-Ladder: JS frontend + Python logic</li>
-          <li>Console Pac-Man: OOP Python, modular architecture</li>
+          <li>secp256k1 ECDSA wallet derivation with nonce-based replay attack mitigation</li>
+          <li>Tamper-evident SHA-256 block hash chaining — mathematically detects silent alterations</li>
+          <li>Automated 6-vector exploit suite: double-spending, signature forgery, replay & tampering</li>
         </ul>
         <div class="project-footer">
-          <div class="tech-stack"><span class="tech-tag">Python</span><span class="tech-tag">JavaScript</span><span class="tech-tag">HTML/CSS</span></div>
-          <a class="project-link" href="https://github.com/rahul200618" target="_blank">↗ GitHub</a>
+          <div class="tech-stack"><span class="tech-tag">Python</span><span class="tech-tag">ECDSA</span><span class="tech-tag">SHA-256</span><span class="tech-tag">VAPT</span><span class="tech-tag">Offensive Security</span></div>
+          <a class="project-link" href="https://github.com/rahul200618/Minimal-Digital-Cash-System-Cryptography" target="_blank">↗ GitHub</a>
         </div>
       </div>
 
@@ -551,8 +559,8 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
         <div class="card-top-bar bar-intern"></div>
         <div class="project-no">INTERNSHIP · <a href="https://openalgon.com" target="_blank" onclick="event.stopPropagation();" style="color:var(--c1);text-decoration:none;transition:all 0.2s;position:relative;z-index:10;" onmouseover="this.style.color='#fff';this.style.textShadow='0 0 8px var(--c1)';" onmouseout="this.style.color='var(--c1)';this.style.textShadow='none';">OPENALGON</a> / <a href="https://decembay.com" target="_blank" onclick="event.stopPropagation();" style="color:var(--c1);text-decoration:none;transition:all 0.2s;position:relative;z-index:10;" onmouseover="this.style.color='#fff';this.style.textShadow='0 0 8px var(--c1)';" onmouseout="this.style.color='var(--c1)';this.style.textShadow='none';">DECEMBAY TECHNOLOGIES</a></div>
         <div class="project-title">AI & Full Stack Intern</div>
-        <div class="project-type">// 6 PRODUCTION APPS SHIPPED · MAY 2026 — PRESENT</div>
-        <p class="project-desc">Building and deploying full-stack web applications at a global software & AI company. Shipped 6 live production apps across education, agriculture, and enterprise domains.</p>
+        <div class="project-type">// 9 PRODUCTION APPS SHIPPED · MAY 2026 — PRESENT</div>
+        <p class="project-desc">Building and deploying full-stack web and cross-platform applications at a global software & AI company. Shipped 9 live production apps across education, healthcare, hospitality, agriculture, and enterprise operations.</p>
         <div class="sub-projects-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;">
           <div class="sub-project" onclick="event.stopPropagation();window.open('https://rankprediction.com','_blank')" style="cursor:pointer;">
             <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:2px;">
@@ -607,6 +615,33 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
             <div class="sub-project-type">IMMIGRATION SERVICES PORTAL</div>
             <div class="sub-project-desc">Comprehensive immigration services web app designed to streamline client onboarding and consultation management with a public portal and admin dashboard.</div>
             <div class="sub-project-tags"><span class="tech-tag">TanStack Start</span><span class="tech-tag">React 19</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Tailwind CSS</span><span class="tech-tag">shadcn/ui</span><span class="tech-tag">Supabase</span><span class="tech-tag">Cloudflare Workers</span></div>
+          </div>
+          <div class="sub-project" onclick="event.stopPropagation();window.open('https://shreeudupiaramane.com/','_blank')" style="cursor:pointer;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:2px;">
+              <div class="sub-project-title" style="margin-bottom:0;">Shree Udupi Aramane</div>
+              <div class="live-btn">↗ Live</div>
+            </div>
+            <div class="sub-project-type">RESTAURANT OPERATIONS MONOLITH & POS</div>
+            <div class="sub-project-desc">Production restaurant operations suite serving 4 portals (Customer, Kitchen KDS, Delivery Valet, Admin) with Socket.IO, BullMQ, FSM order progression, and Cashfree payments.</div>
+            <div class="sub-project-tags"><span class="tech-tag">Next.js 16</span><span class="tech-tag">React 19</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Prisma</span><span class="tech-tag">Supabase</span><span class="tech-tag">BullMQ</span><span class="tech-tag">Socket.IO</span><span class="tech-tag">Cashfree</span></div>
+          </div>
+          <div class="sub-project" onclick="event.stopPropagation();window.open('https://abhyas.pro/','_blank')" style="cursor:pointer;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:2px;">
+              <div class="sub-project-title" style="margin-bottom:0;">Abhyas Nepal</div>
+              <div class="live-btn">↗ Live</div>
+            </div>
+            <div class="sub-project-type">NEPAL MEDICAL ENTRANCE EXAM PLATFORM</div>
+            <div class="sub-project-desc">MECEE-BL prep platform with timed model exams, chapter MCQs, KaTeX formula rendering, accuracy analytics, anti-cheat, and All-Nepal leaderboards.</div>
+            <div class="sub-project-tags"><span class="tech-tag">TanStack Start</span><span class="tech-tag">React 19</span><span class="tech-tag">TypeScript</span><span class="tech-tag">Supabase</span><span class="tech-tag">Tailwind CSS</span><span class="tech-tag">Vitest</span><span class="tech-tag">KaTeX</span></div>
+          </div>
+          <div class="sub-project" onclick="event.stopPropagation();window.open('https://nepal-college-predictor.pages.dev/','_blank')" style="cursor:pointer;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:2px;">
+              <div class="sub-project-title" style="margin-bottom:0;">Nepal CEE Predictor</div>
+              <div class="live-btn">↗ Live</div>
+            </div>
+            <div class="sub-project-type">ADMISSION PREDICTOR · CLOUDFLARE EDGE SSR</div>
+            <div class="sub-project-desc">Rank estimation and admission probability predictor for Nepal CEE entrance across 16+ medical bachelor degrees and 14 official reservation quotas.</div>
+            <div class="sub-project-tags"><span class="tech-tag">TanStack Start</span><span class="tech-tag">React 19</span><span class="tech-tag">Tailwind CSS v4</span><span class="tech-tag">Supabase</span><span class="tech-tag">Nitro</span><span class="tech-tag">Cloudflare Pages</span></div>
           </div>
         </div>
         <div class="project-footer">
@@ -690,7 +725,7 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
           <div class="tl-title">AI & Full Stack Intern</div>
           <div class="tl-sub"><a href="https://openalgon.com" target="_blank" style="color:inherit;text-decoration:none;">OpenAlgon</a> / <a href="https://decembay.com" target="_blank" style="color:inherit;text-decoration:none;">Decembay Technologies</a></div>
           <div class="tl-date">May 2026 — Present</div>
-          <div class="tl-desc">Building and deploying 6 production full-stack web apps using React, TypeScript, Supabase, and TanStack. Shipped live platforms across education tech, agriculture, and enterprise ERP domains.</div>
+          <div class="tl-desc">Building and deploying 9 production full-stack web and cross-platform apps using React, Next.js, TypeScript, Supabase, and TanStack. Shipped live platforms across education tech, healthcare, hospitality, agriculture, and enterprise operations.</div>
         </div>
         <div class="timeline-item">
           <div class="tl-title">GenAI Data Analytics Simulation</div>
@@ -728,12 +763,12 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-inner reveal">
-    <p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);letter-spacing:0.2em;margin-bottom:20px;">06 / CONTACT</p>
+    <p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);letter-spacing:0.2em;margin-bottom:20px;">07 / CONTACT</p>
     <div class="contact-big">LET'S<br><span class="glow">CONNECT</span></div>
     <p class="contact-sub">Open to internships, collaborations, and interesting problems. Let's build something that matters.</p>
     <div class="contact-links">
       <a class="contact-link" href="mailto:rahuldheeraj.anil@gmail.com"><span>✉️</span>rahuldheeraj.anil@gmail.com</a>
-      <a class="contact-link" href="http://www.linkedin.com/in/rahul-a-200618-ln" target="_blank"><span>💼</span>LinkedIn</a>
+      <a class="contact-link" href="https://www.linkedin.com/in/rahul-a-200618-ln" target="_blank"><span>💼</span>LinkedIn</a>
       <a class="contact-link" href="https://github.com/rahul200618" target="_blank"><span>🐙</span>GitHub</a>
     </div>
   </div>
@@ -828,7 +863,7 @@ laptopGroup.rotation.y=-0.4;
 heroGroup.add(laptopGroup);
 
 // Position figure to the right side
-heroGroup.position.set(12,-2,0);
+heroGroup.position.set(16,-2,0);
 heroGroup.rotation.y=-0.3;
 
 // --- ORBITING SKILL ELEMENTS ---
