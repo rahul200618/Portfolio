@@ -21,6 +21,11 @@ function safeWriteJsonSync(filePath, data) {
     if (fs.existsSync(tempPath)) {
       try { fs.unlinkSync(tempPath); } catch (_) {}
     }
+    // On serverless read-only filesystems (like Vercel Lambda), safely bypass disk writes
+    if (err.code === 'EROFS') {
+      console.warn(`[STORAGE NOTICE] Serverless read-only environment detected. File write bypassed for ${path.basename(filePath)}`);
+      return;
+    }
     throw err;
   }
 }
