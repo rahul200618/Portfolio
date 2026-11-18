@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rahul A. — Admin Control Console</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/fullstack.css">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    :root {
+      --bg:#050810; --surface:#0d1320; --surface-card:#121a2c; --border:#1a2540;
+      --text:#dde6f5; --muted:#4a6080;
+      --c1:#00d4ff; --c2:#7c3aed; --c3:#10b981; --c4:#f59e0b; --c5:#ef4444;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Outfit', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: rgba(5,8,16,0.95);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(10px);
+    }
+    .admin-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      letter-spacing: 2px;
+      color: var(--c1);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .admin-logo span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      padding: 3px 8px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .btn-header {
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-header:hover {
+      border-color: var(--c1);
+      color: var(--c1);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 24px;
+      width: 100%;
+      flex: 1;
+    }
+    
+    /* Login Modal Overlay */
+    #login-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(5,8,16,0.92);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .login-box {
+      background: var(--surface);
+      border: 1px solid rgba(0,212,255,0.25);
+      border-radius: 16px;
+      padding: 40px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.6);
+      text-align: center;
+    }
+    .login-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      letter-spacing: 1.5px;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .login-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    
+    /* Metrics Grid */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+    .metric-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+    }
+    .mc-blue::before { background: var(--c1); }
+    .mc-green::before { background: var(--c3); }
+    .mc-yellow::before { background: var(--c4); }
+    .mc-purple::before { background: var(--c2); }
+    .metric-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 44px;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .metric-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+    
+    /* Section Tabs */
+    .admin-tabs {
+      display: flex;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+    }
+    .admin-tab {
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+      cursor: pointer;
+      background: transparent;
+      border: 1px solid transparent;
+      transition: all 0.2s;
+    }
+    .admin-tab:hover {
+      color: var(--text);
+    }
+    .admin-tab.active {
+      color: var(--c1);
+      background: rgba(0,212,255,0.08);
+      border-color: rgba(0,212,255,0.3);
+    }
+    
+    /* Messages List */
+    .message-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 16px;
+      transition: border-color 0.2s;
+    }
+    .message-card.unread {
+      border-left: 4px solid var(--c1);
+      background: rgba(0,212,255,0.02);
+    }
+    .msg-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .msg-sender {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .msg-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(0,212,255,0.15);
+      color: var(--c1);
+    }
+    .msg-email {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .msg-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .msg-subject {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: var(--c4);
+      margin-bottom: 12px;
+    }
+    .msg-body {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.7;
+      background: rgba(5,8,16,0.6);
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      white-space: pre-wrap;
+    }
+    .msg-actions {
+      display: flex;
+      gap: 10px;
+    }
+    .btn-msg {
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      border: 1px solid var(--border);
+      background: var(--surface-card);
+      color: var(--text);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-msg:hover {
+      border-color: var(--c1);
+      color: var(--c1);
+    }
+    .btn-msg-danger:hover {
+      border-color: var(--c5);
+      color: var(--c5);
+    }
+    
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+    }
+
+    @media (max-width: 768px) {
+      .metrics-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      header {
+        padding: 16px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ADMIN LOGIN OVERLAY -->
+  <div id="login-overlay">
+    <div class="login-box">
+      <div class="login-title">ADMIN CONSOLE</div>
+      <div class="login-sub">// RAHUL A. PORTFOLIO ENGINE</div>
+      <div id="login-error" class="form-feedback error" style="display:none;margin-bottom:16px;"></div>
+      <form id="admin-login-form">
+        <div class="form-group" style="text-align:left;">
+          <label for="admin-password">Console Secret Key / Password</label>
+          <input type="password" id="admin-password" class="form-control" placeholder="Enter administrative password..." required autocomplete="current-password" autofocus />
+        </div>
+        <button type="submit" class="btn-submit" id="btn-login">AUTHENTICATE ➔</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="admin-logo">
+      RAHUL A. <span>ADMIN CONTROL</span>
+    </div>
+    <div class="header-actions">
+      <a href="/" class="btn-header">↗ View Live Site</a>
+      <button id="btn-logout" class="btn-header">Lock Console</button>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <div class="container">
+
+    <!-- METRICS -->
+    <div class="metrics-grid">
+      <div class="metric-card mc-blue">
+        <div class="metric-num" id="stat-inquiries">0</div>
+        <div class="metric-label">TOTAL INQUIRIES</div>
+      </div>
+      <div class="metric-card mc-yellow">
+        <div class="metric-num" id="stat-unread">0</div>
+        <div class="metric-label">UNREAD TRANSMISSIONS</div>
+      </div>
+      <div class="metric-card mc-green">
+        <div class="metric-num" id="stat-visits">0</div>
+        <div class="metric-label">PAGE VISITS</div>
+      </div>
+      <div class="metric-card mc-purple">
+        <div class="metric-num" id="stat-downloads">0</div>
+        <div class="metric-label">RESUME DOWNLOADS</div>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="admin-tabs" style="align-items:center;">
+      <button class="admin-tab active" data-tab="messages">Inquiries Inbox (<span id="inbox-count">0</span>)</button>
+      <button class="admin-tab" data-tab="analytics">Visitor Analytics</button>
+      <button class="admin-tab" data-tab="system">API &amp; Server Telemetry</button>
+      <button id="btn-export-csv" class="btn-header" style="margin-left:auto;font-size:10px;">📥 Export CSV</button>
+    </div>
+
+    <!-- TAB: INBOX -->
+    <div id="tab-messages" class="tab-content">
+      <div id="messages-container">
+        <div class="empty-state">Loading contact inquiries...</div>
+      </div>
+    </div>
+
+    <!-- TAB: ANALYTICS -->
+    <div id="tab-analytics" class="tab-content" style="display:none;">
+      <div class="metric-card" style="margin-bottom:20px;">
+        <h3 style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--c1);margin-bottom:16px;">// RECENT VISITOR ACTIVITY (LAST 15 SESSIONS)</h3>
+        <div id="recent-visits-list" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);">
+          Loading visitor logs...
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: SYSTEM -->
+    <div id="tab-system" class="tab-content" style="display:none;">
+      <div class="metric-card">
+        <h3 style="font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--c1);margin-bottom:16px;">// LIVE NODE.JS / EXPRESS TELEMETRY</h3>
+        <pre id="system-telemetry-pre" style="background:#050810;padding:20px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--c3);overflow-x:auto;">Loading telemetry...</pre>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>
+

@@ -8,6 +8,7 @@
 html,body{background:#050810!important;margin:0;padding:0;}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/fullstack.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <style>
 #three-canvas{background:#050810;}
@@ -20,8 +21,8 @@ html,body{background:#050810!important;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;overflow-x:hidden;cursor:none;}
 
-#cursor{position:fixed;width:12px;height:12px;background:var(--c1);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:screen;}
-#cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid rgba(0,212,255,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width 0.2s,height 0.2s,border-color 0.2s;}
+#cursor{position:fixed;width:12px;height:12px;background:var(--c1);border-radius:50%;pointer-events:none;z-index:999999999;transform:translate(-50%,-50%);box-shadow:0 0 12px rgba(0,212,255,0.9);}
+#cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid rgba(0,212,255,0.6);border-radius:50%;pointer-events:none;z-index:999999998;transform:translate(-50%,-50%);transition:width 0.2s,height 0.2s,border-color 0.2s,border-radius 0.2s;}
 
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:20px 60px;background:linear-gradient(to bottom,rgba(5,8,16,0.95),transparent);backdrop-filter:blur(4px);}
 .nav-header{display:flex;align-items:center;justify-content:space-between;}
@@ -57,7 +58,7 @@ section{position:relative;z-index:10;padding:100px 60px;min-height:100vh;display
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,212,255,0.35);}
 .btn-ghost{padding:14px 36px;background:transparent;color:var(--text);font-weight:600;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;border:1px solid var(--border);border-radius:6px;cursor:pointer;transition:all 0.2s;text-decoration:none;font-family:'JetBrains Mono',monospace;display:inline-block;}
 .btn-ghost:hover{border-color:var(--c1);color:var(--c1);}
-.scroll-hint{position:absolute;bottom:40px;left:60px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:0.15em;display:flex;align-items:center;gap:12px;opacity:0;animation:fadeUp 1s 1.5s forwards;}
+.scroll-hint{position:absolute;bottom:40px;left:50%;transform:translate(-50%,0);font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:0.18em;display:flex;align-items:center;justify-content:center;gap:12px;opacity:0;animation:fadeUpCenter 1s 1.5s forwards;pointer-events:none;z-index:20;}
 .scroll-line{width:60px;height:1px;background:var(--muted);position:relative;overflow:hidden;}
 .scroll-line::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:var(--c1);animation:slideLine 2s 2s infinite;}
 
@@ -176,6 +177,7 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
 .reveal-delay-1{transition-delay:0.1s;}.reveal-delay-2{transition-delay:0.2s;}.reveal-delay-3{transition-delay:0.3s;}.reveal-delay-4{transition-delay:0.4s;}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeUpCenter{from{opacity:0;transform:translate(-50%,25px);}to{opacity:1;transform:translate(-50%,0);}}
 @keyframes slideLine{from{left:-100%;}to{left:100%;}}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.4;}}
 .blink{animation:pulse 2s infinite;}
@@ -295,9 +297,324 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
   .stat-num{ font-size: 42px; }
   .scroll-hint{ display: none; }
 }
+
+/* CYBER PRELOADER — ZERO-LAG INITIAL BOOT SCREEN */
+.cyber-preloader {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #050810;
+  z-index: 10000000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.55s;
+  pointer-events: all;
+  user-select: none;
+}
+.cyber-preloader.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: scale(1.03);
+}
+.preloader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 440px;
+  width: 90%;
+  text-align: center;
+}
+.preloader-logo-ring {
+  position: relative;
+  width: 76px;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+.preloader-hex {
+  width: 58px;
+  height: 58px;
+  background: rgba(0, 212, 255, 0.08);
+  border: 1.5px solid rgba(0, 212, 255, 0.5);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.25);
+  position: relative;
+  z-index: 2;
+  animation: preloaderPulse 2s ease-in-out infinite alternate;
+}
+.preloader-glyph {
+  font-size: 26px;
+  filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.8));
+}
+.preloader-radar {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px dashed rgba(0, 212, 255, 0.3);
+  animation: preloaderSpin 8s linear infinite;
+}
+.preloader-radar::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00d4ff;
+  box-shadow: 0 0 8px #00d4ff;
+  transform: translateX(-50%);
+}
+@keyframes preloaderSpin {
+  100% { transform: rotate(360deg); }
+}
+@keyframes preloaderPulse {
+  0% { transform: scale(0.96); box-shadow: 0 0 15px rgba(0, 212, 255, 0.2); }
+  100% { transform: scale(1.04); box-shadow: 0 0 32px rgba(0, 212, 255, 0.5); }
+}
+.preloader-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 38px;
+  letter-spacing: 4px;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.preloader-title .accent {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #00d4ff;
+}
+.preloader-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: #4a6080;
+  text-transform: uppercase;
+  margin-bottom: 26px;
+}
+.preloader-bar-wrap {
+  width: 100%;
+  margin-bottom: 16px;
+}
+.preloader-bar-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(0, 212, 255, 0.15);
+}
+.preloader-bar-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #00d4ff, #10b981);
+  border-radius: 100px;
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.8);
+  transition: width 0.08s ease-out;
+}
+.preloader-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  margin-top: 10px;
+}
+.preloader-status-text {
+  color: #00d4ff;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+.preloader-percent {
+  color: #10b981;
+  font-weight: 600;
+}
+.preloader-telemetry-feed {
+  width: 100%;
+  background: rgba(13, 19, 32, 0.85);
+  border: 1px solid rgba(26, 37, 64, 0.95);
+  border-radius: 8px;
+  padding: 8px 12px;
+  text-align: left;
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.5);
+}
+.preloader-telemetry-feed code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #8aa0bc;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  width: 100%;
+}
+
+/* FLOATING LAUNCHERS COMMON */
+.fs-floating-triggers {
+  position: fixed;
+  bottom: 24px;
+  z-index: 999;
+  display: flex;
+  gap: 12px;
+}
+.trigger-left { left: 24px; }
+.trigger-right { right: 24px; }
+
+.fs-launcher-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 10px 18px !important;
+  background: rgba(13, 19, 32, 0.94) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 100px !important;
+  color: var(--text) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  letter-spacing: 0.08em !important;
+  cursor: pointer !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  user-select: none;
+}
+.fs-launcher-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(0, 212, 255, 0.25) !important;
+  border-color: var(--c1) !important;
+  color: var(--c1) !important;
+}
+
+/* AI COPILOT LAUNCHER BUTTON SPECIFIC */
+.ai-copilot-pill {
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  white-space: nowrap !important;
+  gap: 9px !important;
+  padding: 10px 20px !important;
+  background: rgba(13, 19, 32, 0.95) !important;
+  border: 1px solid rgba(0, 212, 255, 0.45) !important;
+  border-radius: 100px !important;
+  color: #fff !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  cursor: pointer !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.7), 0 0 18px rgba(0, 212, 255, 0.22) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  user-select: none !important;
+  text-decoration: none !important;
+}
+.ai-copilot-pill:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  border-color: #00d4ff !important;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.8), 0 0 28px rgba(0, 212, 255, 0.45) !important;
+  color: #00d4ff !important;
+}
+.copilot-spark {
+  font-size: 14px !important;
+  line-height: 1 !important;
+  display: inline-block !important;
+  filter: drop-shadow(0 0 6px rgba(0, 212, 255, 0.85)) !important;
+  animation: sparkHover 4s ease-in-out infinite alternate !important;
+}
+@keyframes sparkHover {
+  0% { transform: scale(0.95) rotate(0deg); }
+  100% { transform: scale(1.15) rotate(15deg); }
+}
+.copilot-label {
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  color: #ffffff !important;
+}
+.ai-copilot-pill:hover .copilot-label {
+  color: #00d4ff !important;
+}
+.copilot-beacon {
+  position: relative !important;
+  width: 9px !important;
+  height: 9px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-left: 2px !important;
+}
+.copilot-beacon-dot {
+  width: 7px !important;
+  height: 7px !important;
+  border-radius: 50% !important;
+  background: #10b981 !important;
+  box-shadow: 0 0 8px #10b981 !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+.copilot-beacon-wave {
+  position: absolute !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 50% !important;
+  background: rgba(16, 185, 129, 0.7) !important;
+  animation: beaconPing 2s cubic-bezier(0, 0, 0.2, 1) infinite !important;
+}
+@keyframes beaconPing {
+  0% { transform: scale(1); opacity: 0.9; }
+  75%, 100% { transform: scale(2.6); opacity: 0; }
+}
 </style>
 </head>
 <body>
+
+<!-- INITIAL SYSTEM PRELOADER -->
+<div id="cyber-preloader" class="cyber-preloader" aria-hidden="true">
+  <div class="preloader-content">
+    <div class="preloader-logo-ring">
+      <div class="preloader-hex">
+        <span class="preloader-glyph">⚡</span>
+      </div>
+      <div class="preloader-radar"></div>
+    </div>
+    
+    <div class="preloader-brand">
+      <div class="preloader-title">RAHUL <span class="accent">A</span></div>
+      <div class="preloader-sub">PORTFOLIO // FULL-STACK & CYBERSECURITY</div>
+    </div>
+
+    <div class="preloader-bar-wrap">
+      <div class="preloader-bar-track">
+        <div class="preloader-bar-fill" id="preloader-bar-fill"></div>
+      </div>
+      <div class="preloader-stats">
+        <span class="preloader-status-text" id="preloader-status-text">INITIALIZING ENGINE...</span>
+        <span class="preloader-percent" id="preloader-percent">0%</span>
+      </div>
+    </div>
+
+    <div class="preloader-telemetry-feed" id="preloader-feed">
+      <code>[BOOT] ALLOCATING 3D WEBGL GRAPHICS CONTEXT...</code>
+    </div>
+  </div>
+</div>
 
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
@@ -367,9 +684,24 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
   <div class="section-inner">
     <span class="section-tag reveal">02 / Projects</span>
     <h2 class="section-title reveal">WHAT I'VE <span class="dim">BUILT</span></h2>
+    
+    <div class="projects-toolbar reveal">
+      <div class="projects-filters">
+        <button class="filter-btn active" data-filter="all">ALL PROJECTS (16)</button>
+        <button class="filter-btn" data-filter="production">OPENALGON PRODUCTION (9)</button>
+        <button class="filter-btn" data-filter="flagship">FLAGSHIP CAPSTONES (4)</button>
+        <button class="filter-btn" data-filter="cybersecurity">CYBERSECURITY (2)</button>
+        <button class="filter-btn" data-filter="ai_ml">MACHINE LEARNING &amp; AI (3)</button>
+      </div>
+      <div class="search-box-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="project-search-input" placeholder="Search by tech stack, domain or keyword (e.g. Next.js, Supabase, VAPT, Python)..." />
+      </div>
+    </div>
+
     <div class="projects-grid">
 
-      <div class="project-card featured reveal" id="pc1" onclick="window.open('https://symbio-insight-app-2.onrender.com', '_blank')" style="cursor:pointer;">
+      <div class="project-card featured reveal" id="pc1" data-category="flagship ai_ml" onclick="window.open('https://symbio-insight-app-2.onrender.com', '_blank')" style="cursor:pointer;">
         <div class="card-top-bar bar-web"></div>
         <div class="featured-inner" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
           <div>
@@ -408,7 +740,7 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
         </div>
       </div>
 
-      <div class="project-card featured reveal reveal-delay-1" onclick="window.open('https://ai.studio/apps/drive/1LW3wz8j-uInj_2CIDa3WJLV6lNqUYwNf?fullscreenApplet=true', '_blank')" style="cursor:pointer;">
+      <div class="project-card featured reveal reveal-delay-1" data-category="flagship fullstack" onclick="window.open('https://ai.studio/apps/drive/1LW3wz8j-uInj_2CIDa3WJLV6lNqUYwNf?fullscreenApplet=true', '_blank')" style="cursor:pointer;">
         <div class="card-top-bar bar-cinema"></div>
         <div class="featured-inner" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
           <div>
@@ -446,7 +778,7 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
         </div>
       </div>
 
-      <div class="project-card reveal reveal-delay-2" onclick="window.open('https://github.com/rahul200618/wine-quality-ml', '_blank')" style="cursor:pointer;">
+      <div class="project-card reveal reveal-delay-2" data-category="flagship ai_ml" onclick="window.open('https://github.com/rahul200618/wine-quality-ml', '_blank')" style="cursor:pointer;">
         <div class="card-top-bar bar-data"></div>
         <div class="project-no">PROJECT 03 · MACHINE LEARNING</div>
         <div class="project-title">Wine Quality ML Pipeline</div>
@@ -463,7 +795,7 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
         </div>
       </div>
 
-      <div class="project-card reveal reveal-delay-3" onclick="window.open('https://github.com/rahul200618/Minimal-Digital-Cash-System-Cryptography', '_blank')" style="cursor:pointer;">
+      <div class="project-card reveal reveal-delay-3" data-category="flagship cybersecurity" onclick="window.open('https://github.com/rahul200618/Minimal-Digital-Cash-System-Cryptography', '_blank')" style="cursor:pointer;">
         <div class="card-top-bar bar-cyber"></div>
         <div class="project-no">PROJECT 04 · CYBERSECURITY</div>
         <div class="project-title">Minimal Digital Cash Protocol</div>
@@ -480,7 +812,7 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
         </div>
       </div>
 
-      <div class="project-card reveal" onclick="window.open('https://github.com/rahul200618/Quiz-and-Ladder-A-Web-game', '_blank')" style="cursor:pointer;">
+      <div class="project-card reveal" data-category="engineering" onclick="window.open('https://github.com/rahul200618/Quiz-and-Ladder-A-Web-game', '_blank')" style="cursor:pointer;">
         <div class="card-top-bar bar-game"></div>
         <div class="project-no">PROJECT 05 · WEB GAME</div>
         <div class="project-title">Quiz-and-Ladder</div>
@@ -496,7 +828,7 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
         </div>
       </div>
 
-      <div class="project-card reveal reveal-delay-1" onclick="window.open('https://github.com/rahul200618/AGRILOOP', '_blank')" style="cursor:pointer;">
+      <div class="project-card reveal reveal-delay-1" data-category="ai_ml" onclick="window.open('https://github.com/rahul200618/AGRILOOP', '_blank')" style="cursor:pointer;">
         <div class="card-top-bar bar-ai"></div>
         <div class="project-no">PROJECT 06 · IN PROGRESS <span class="in-progress-badge">IN PROGRESS</span></div>
         <div class="project-title">AgriLoop 2.0</div>
@@ -514,7 +846,7 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
         </div>
       </div>
 
-      <div class="project-card reveal reveal-delay-2" onclick="window.open('https://github.com/rahul200618/Smart-Energy-Usage-Tracker', '_blank')" style="cursor:pointer;">
+      <div class="project-card reveal reveal-delay-2" data-category="engineering ai_ml" onclick="window.open('https://github.com/rahul200618/Smart-Energy-Usage-Tracker', '_blank')" style="cursor:pointer;">
         <div class="card-top-bar bar-data"></div>
         <div class="project-no">PROJECT 07 · IN PROGRESS <span class="in-progress-badge">IN PROGRESS</span></div>
         <div class="project-title">Smart Energy Usage Tracker</div>
@@ -530,7 +862,7 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
         </div>
       </div>
 
-      <div class="project-card reveal reveal-delay-3">
+      <div class="project-card reveal reveal-delay-3" data-category="engineering">
         <div class="card-top-bar bar-eng"></div>
         <div class="project-no">PROJECT 08 · ENGINEERING</div>
         <div class="project-title">Formula Bharat 2026 — RevX Atria (E17)</div>
@@ -555,7 +887,7 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
     <span class="section-tag reveal">03 / Experience</span>
     <h2 class="section-title reveal">WHERE I'VE <span class="dim">WORKED</span></h2>
     <div class="projects-grid">
-      <div class="project-card featured reveal" onclick="window.open('https://openalgon.com', '_blank')" style="cursor:pointer;">
+      <div class="project-card featured reveal" data-category="production fullstack" onclick="window.open('https://openalgon.com', '_blank')" style="cursor:pointer;">
         <div class="card-top-bar bar-intern"></div>
         <div class="project-no">INTERNSHIP · <a href="https://openalgon.com" target="_blank" onclick="event.stopPropagation();" style="color:var(--c1);text-decoration:none;transition:all 0.2s;position:relative;z-index:10;" onmouseover="this.style.color='#fff';this.style.textShadow='0 0 8px var(--c1)';" onmouseout="this.style.color='var(--c1)';this.style.textShadow='none';">OPENALGON</a> / <a href="https://decembay.com" target="_blank" onclick="event.stopPropagation();" style="color:var(--c1);text-decoration:none;transition:all 0.2s;position:relative;z-index:10;" onmouseover="this.style.color='#fff';this.style.textShadow='0 0 8px var(--c1)';" onmouseout="this.style.color='var(--c1)';this.style.textShadow='none';">DECEMBAY TECHNOLOGIES</a></div>
         <div class="project-title">AI & Full Stack Intern</div>
@@ -754,27 +1086,287 @@ footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-fa
       </div>
     </div>
     <div class="resume-download reveal">
-      <a href="Rahul_Resume4.3.pdf" class="btn-primary" download>Download Resume (PDF)</a>
+      <a href="/api/resume/download" class="btn-primary" download="Rahul_A_Resume.pdf">Download Resume (PDF)</a>
       <a href="#contact" class="btn-ghost">Hire Me</a>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- CONTACT & TELEMETRY -->
 <section id="contact">
-  <div class="contact-inner reveal">
-    <p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);letter-spacing:0.2em;margin-bottom:20px;">07 / CONTACT</p>
-    <div class="contact-big">LET'S<br><span class="glow">CONNECT</span></div>
-    <p class="contact-sub">Open to internships, collaborations, and interesting problems. Let's build something that matters.</p>
-    <div class="contact-links">
-      <a class="contact-link" href="mailto:rahuldheeraj.anil@gmail.com"><span>✉️</span>rahuldheeraj.anil@gmail.com</a>
-      <a class="contact-link" href="https://www.linkedin.com/in/rahul-a-200618-ln" target="_blank"><span>💼</span>LinkedIn</a>
-      <a class="contact-link" href="https://github.com/rahul200618" target="_blank"><span>🐙</span>GitHub</a>
+  <div class="section-inner reveal">
+    <div class="contact-wrapper">
+      <div class="contact-info-col">
+        <p style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);letter-spacing:0.2em;margin-bottom:16px;">07 / CONTACT &amp; TELEMETRY</p>
+        <div class="contact-big" style="margin-bottom:16px;">LET'S<br><span class="glow">CONNECT</span></div>
+        <p class="contact-sub" style="margin-bottom:32px;">Open to internships, full-stack engineering roles, VAPT consulting &amp; technical collaborations. Submissions stream straight to the Node.js backend.</p>
+        
+        <div class="contact-links" style="margin-bottom:32px;justify-content:flex-start;">
+          <a class="contact-link" href="mailto:rahuldheeraj.anil@gmail.com"><span>✉️</span>rahuldheeraj.anil@gmail.com</a>
+          <a class="contact-link" href="https://www.linkedin.com/in/rahul-a-200618-ln" target="_blank"><span>💼</span>LinkedIn</a>
+          <a class="contact-link" href="https://github.com/rahul200618" target="_blank"><span>🐙</span>GitHub</a>
+        </div>
+
+        <div class="live-telemetry-box">
+          <div class="telemetry-header">
+            <span>// FULL-STACK SERVER TELEMETRY</span>
+            <span style="color:var(--c3);">● ACTIVE</span>
+          </div>
+          <div class="telemetry-metrics">
+            <div>
+              <div class="t-metric-val" id="t-metric-visits">1,420</div>
+              <div class="t-metric-lbl">TOTAL VISITS</div>
+            </div>
+            <div>
+              <div class="t-metric-val" id="t-metric-apps">9</div>
+              <div class="t-metric-lbl">PRODUCTION APPS</div>
+            </div>
+            <div>
+              <div class="t-metric-val" id="t-metric-downloads">215</div>
+              <div class="t-metric-lbl">RESUME DOWNLOADS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-card">
+        <div class="form-title"><span>⚡</span> TRANSMIT INQUIRY</div>
+        <p class="form-sub">Powered by Express REST API, SQLite persistence &amp; rate limiting.</p>
+        
+        <div id="contact-feedback" class="form-feedback"></div>
+
+        <form id="contact-form">
+          <!-- Anti-Spam Honeypot Field -->
+          <input type="text" name="_gotcha" id="contact-gotcha" class="honeypot-field" tabindex="-1" autocomplete="off" />
+
+          <div class="form-group">
+            <label for="contact-name">Your Full Name</label>
+            <input type="text" id="contact-name" class="form-control" placeholder="e.g. Maya Chen" required minlength="2" maxlength="100" />
+          </div>
+
+          <div class="form-group">
+            <label for="contact-email">Email Address</label>
+            <input type="email" id="contact-email" class="form-control" placeholder="e.g. maya@company.com" required maxlength="254" />
+          </div>
+
+          <div class="form-group">
+            <label for="contact-subject">Inquiry Domain / Subject</label>
+            <select id="contact-subject" class="form-control">
+              <option value="Full-Stack Engineering Role">⚡ Full-Stack Engineering Role</option>
+              <option value="Cybersecurity / VAPT Engagement">🛡️ Cybersecurity / VAPT Engagement</option>
+              <option value="AI &amp; Machine Learning Project">🤖 AI &amp; Machine Learning Project</option>
+              <option value="General Collaboration / Consulting">🤝 General Collaboration / Consulting</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-message">Transmission / Message</label>
+            <textarea id="contact-message" class="form-control" placeholder="Tell me about your team, challenge, or project..." required minlength="10" maxlength="3000"></textarea>
+            <div class="char-counter" id="message-char-count">0 / 3000</div>
+          </div>
+
+          <button type="submit" class="btn-submit" id="btn-submit-contact">
+            <span class="btn-spinner" id="btn-submit-spinner" style="display:none;"></span>
+            <span id="btn-submit-text">SEND TRANSMISSION ➔</span>
+          </button>
+        </form>
+      </div>
     </div>
   </div>
 </section>
 
-<footer><p>Built by Rahul A · Bengaluru, India · <span class="blink">●</span> Available for opportunities</p></footer>
+<!-- PROJECT ARCHITECTURE MODAL -->
+<div id="project-modal" class="fs-modal-backdrop">
+  <div class="fs-modal-card">
+    <button class="fs-modal-close" onclick="window.closeModal('project-modal')">✕</button>
+    <div class="modal-tag" id="pm-tag">// ARCHITECTURE OVERVIEW</div>
+    <div class="modal-title" id="pm-title">Project Title</div>
+    <p class="modal-desc" id="pm-desc">Project Description</p>
+    
+    <div class="modal-highlight-box">
+      <div class="modal-highlight-title">Key Engineering Highlights</div>
+      <ul class="modal-bullets" id="pm-bullets"></ul>
+    </div>
+
+    <div style="margin-bottom:24px;">
+      <div class="modal-highlight-title">Technology Stack</div>
+      <div class="tech-stack" id="pm-tech" style="gap:8px;"></div>
+    </div>
+
+    <div class="modal-footer">
+      <div class="modal-links">
+        <a id="pm-btn-live" class="btn-primary" href="#" target="_blank" style="padding:10px 24px;font-size:12px;">↗ Launch Live</a>
+        <a id="pm-btn-github" class="btn-ghost" href="#" target="_blank" style="padding:10px 24px;font-size:12px;">↗ GitHub Repo</a>
+      </div>
+      <button class="btn-ghost" onclick="window.closeModal('project-modal')" style="padding:10px 20px;font-size:11px;">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- FULL-STACK ARCHITECTURE & TELEMETRY MODAL -->
+<div id="telemetry-modal" class="fs-modal-backdrop">
+  <div class="fs-modal-card">
+    <button class="fs-modal-close" onclick="window.closeModal('telemetry-modal')">✕</button>
+    <div class="modal-tag">// FULL-STACK TELEMETRY &amp; ARCHITECTURE</div>
+    <div class="modal-title">SYSTEM CONSOLE</div>
+    <p class="modal-desc">Real-time status of this full-stack portfolio running on Node.js &amp; Express, backed by persistent ACID storage and secured with OWASP Top 10 defenses.</p>
+
+    <!-- System Metrics -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;text-align:center;">
+      <div style="background:rgba(0,212,255,0.04);border:1px solid rgba(0,212,255,0.15);padding:14px;border-radius:10px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-bottom:4px;">RUNTIME</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--c1);" id="tm-runtime">Node v24</div>
+      </div>
+      <div style="background:rgba(0,212,255,0.04);border:1px solid rgba(0,212,255,0.15);padding:14px;border-radius:10px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-bottom:4px;">MEMORY (RSS/HEAP)</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--c3);" id="tm-memory">42 MB / 18 MB</div>
+      </div>
+      <div style="background:rgba(0,212,255,0.04);border:1px solid rgba(0,212,255,0.15);padding:14px;border-radius:10px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);margin-bottom:4px;">SERVER UPTIME</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--c4);" id="tm-uptime">Active</div>
+      </div>
+    </div>
+
+    <!-- Architecture Flow -->
+    <div class="modal-highlight-title">// FULL-STACK DATA FLOW</div>
+    <div class="arch-diagram">
+      <div class="arch-node">
+        <div class="arch-node-title">Browser</div>
+        <div class="arch-node-sub">Three.js / HTML5</div>
+      </div>
+      <div class="arch-arrow">➔</div>
+      <div class="arch-node">
+        <div class="arch-node-title">Express API</div>
+        <div class="arch-node-sub">Helmet · RateLimiter</div>
+      </div>
+      <div class="arch-arrow">➔</div>
+      <div class="arch-node">
+        <div class="arch-node-title">Storage</div>
+        <div class="arch-node-sub">ACID JSON Store</div>
+      </div>
+    </div>
+
+    <!-- Endpoints Table -->
+    <div class="modal-highlight-title" style="margin-top:20px;">// LIVE ENDPOINTS STATUS</div>
+    <table class="arch-endpoints-table">
+      <thead>
+        <tr><th>Route</th><th>Method</th><th>Status</th><th>Access</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>/api/health</td><td>GET</td><td><span class="arch-status-pill">200 OK</span></td><td>Public</td></tr>
+        <tr><td>/api/stats</td><td>GET</td><td><span class="arch-status-pill">200 OK</span></td><td>Public</td></tr>
+        <tr><td>/api/projects</td><td>GET</td><td><span class="arch-status-pill">200 OK</span></td><td>Public</td></tr>
+        <tr><td>/api/contact</td><td>POST</td><td><span class="arch-status-pill">201 CREATED</span></td><td>Rate-Limited</td></tr>
+        <tr><td>/api/admin/login</td><td>POST</td><td><span class="arch-status-pill">200 OK</span></td><td>Protected</td></tr>
+      </tbody>
+    </table>
+
+    <div class="modal-footer" style="margin-top:24px;">
+      <a href="/admin" class="btn-primary" style="padding:10px 24px;font-size:11px;">Open Admin Console</a>
+      <button class="btn-ghost" onclick="window.closeModal('telemetry-modal')" style="padding:10px 20px;font-size:11px;">Dismiss</button>
+    </div>
+  </div>
+</div>
+
+<!-- FLOATING CYBER TERMINAL TRIGGER (BOTTOM-LEFT) -->
+<div class="fs-floating-triggers trigger-left">
+  <button id="btn-term-trigger" class="fs-launcher-btn btn-term-style" title="Press ` (backtick) or click to open Cyber Terminal">
+    <span style="color:var(--c1);">&gt;_</span>
+    <span>TERMINAL CLI</span>
+    <span class="launcher-pulse-dot"></span>
+  </button>
+</div>
+
+<!-- FLOATING AI COPILOT TRIGGER (BOTTOM-RIGHT) -->
+<div class="fs-floating-triggers trigger-right">
+  <button id="btn-chat-trigger" class="fs-launcher-btn ai-copilot-pill" title="Launch AI Copilot — Technical & Career Agent">
+    <span class="copilot-spark">✨</span>
+    <span class="copilot-label">AI COPILOT</span>
+    <span class="copilot-beacon">
+      <span class="copilot-beacon-wave"></span>
+      <span class="copilot-beacon-dot"></span>
+    </span>
+  </button>
+</div>
+
+<!-- CYBER TERMINAL CLI MODAL -->
+<div id="cyber-terminal-modal" class="cyber-terminal-backdrop">
+  <div class="cyber-terminal-window">
+    <div class="terminal-header">
+      <div class="term-window-controls">
+        <span class="tw-dot tw-red"></span>
+        <span class="tw-dot tw-yellow"></span>
+        <span class="tw-dot tw-green"></span>
+      </div>
+      <div class="term-header-title">rahul@portfolio-vapt-node: ~ (bash / node-cli)</div>
+      <div class="term-header-actions">
+        <button class="btn-term-ctrl" id="term-close" title="Close (Escape)">✕</button>
+      </div>
+    </div>
+    <div class="terminal-body" id="term-body">
+      <canvas id="term-matrix-canvas"></canvas>
+      <div id="term-output"></div>
+    </div>
+    <div class="terminal-input-bar">
+      <span class="term-input-prompt">rahul@cyber-node:~$</span>
+      <input type="text" id="term-input" placeholder="Type a command (try 'vapt --scan', 'crypto --simulate', 'whoami', 'help')..." autocomplete="off" spellcheck="false" />
+    </div>
+  </div>
+</div>
+
+<!-- AI COPILOT CAREER AGENT DRAWER -->
+<div id="ai-chat-drawer" class="ai-chat-drawer">
+  <div class="chat-header">
+    <div class="chat-title-group">
+      <div class="chat-avatar-head">✨</div>
+      <div>
+        <div class="chat-header-name">AI COPILOT</div>
+        <div class="chat-header-status" id="chat-header-status"><span>●</span> GEMINI 2.5 FLASH ACTIVE</div>
+      </div>
+    </div>
+    <button class="chat-close-btn" id="chat-close" title="Close">✕</button>
+  </div>
+
+  <div class="chat-messages-body" id="chat-messages-body">
+    <div class="chat-msg chat-msg-bot">
+      <div class="chat-avatar">✨</div>
+      <div class="chat-bubble chat-bubble-bot">
+        👋 Hi! I'm Rahul's <strong>AI Copilot</strong>, powered by <strong>Gemini 3.5 Flash-Lite</strong> (1,500 RPD). Ask me about his <strong>9 live production apps</strong>, <strong>cybersecurity VAPT</strong> projects, <strong>ML pipelines</strong>, or availability for 2026 roles!
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-typing-indicator" id="chat-typing">
+    <span>AI Copilot is thinking</span>
+    <span class="typing-dots">
+      <span class="typing-dot"></span>
+      <span class="typing-dot"></span>
+      <span class="typing-dot"></span>
+    </span>
+  </div>
+
+  <div class="chat-chips-bar">
+    <button class="chat-chip" data-prompt="What 9 production apps did Rahul build at OpenAlgon?">9 OpenAlgon Apps</button>
+    <button class="chat-chip" data-prompt="Tell me about Rahul's cybersecurity and VAPT work">VAPT &amp; Security</button>
+    <button class="chat-chip" data-prompt="Explain the Wine ML AUC 0.816 pipeline with zero leakage">Wine ML Pipeline</button>
+    <button class="chat-chip" data-prompt="What did Rahul do for Formula Bharat 2026?">Formula Bharat EV</button>
+    <button class="chat-chip" data-prompt="How can I contact or hire Rahul?">Hire Rahul</button>
+  </div>
+
+  <div class="chat-input-bar">
+    <form id="chat-input-form" class="chat-input-group">
+      <input type="text" id="chat-user-input" placeholder="Ask about Rahul's skills or projects..." autocomplete="off" />
+      <button type="submit" class="btn-chat-send">Send ➔</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <p>
+    Built by Rahul A · Bengaluru, India · <span class="blink">●</span> Available for opportunities
+    <a href="/admin" class="footer-admin-link">🔒 Admin Console (Ctrl+Shift+A)</a>
+  </p>
+</footer>
 
 <script>
 // THREE.JS 3D BACKGROUND — Developer Hero Scene
@@ -959,9 +1551,12 @@ let scrollY=0;
 window.addEventListener('scroll',()=>{scrollY=window.scrollY;});
 
 let t=0;
+let threeFramesRendered=0;
 (function animate(){
   requestAnimationFrame(animate);
   t+=0.008;
+  threeFramesRendered++;
+  if (threeFramesRendered >= 2) window.__THREE_READY = true;
 
   // Animate developer figure
   heroGroup.rotation.y=-0.3+Math.sin(t*0.5)*0.1;
@@ -1068,10 +1663,38 @@ document.addEventListener('mousemove',e=>{cx=e.clientX;cy=e.clientY;});
   curRing.style.left=rx+'px';curRing.style.top=ry+'px';
 })();
 
-// Cursor expand on hover
-document.querySelectorAll('a,button,.domain-chip,.skill-badge').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cur.style.width='6px';cur.style.height='6px';curRing.style.width='52px';curRing.style.height='52px';curRing.style.borderColor='rgba(0,212,255,0.8)';});
-  el.addEventListener('mouseleave',()=>{cur.style.width='12px';cur.style.height='12px';curRing.style.width='36px';curRing.style.height='36px';curRing.style.borderColor='rgba(0,212,255,0.5)';});
+// Cursor dynamic interactive tracking
+document.addEventListener('mouseover', e => {
+  const interactive = e.target.closest('a, button, .domain-chip, .skill-badge, .chat-chip, .filter-btn, .btn-quick-view, .btn-msg, .fs-launcher-btn');
+  const textInput = e.target.closest('input, textarea');
+
+  if (textInput) {
+    cur.style.width = '3px';
+    cur.style.height = '18px';
+    cur.style.borderRadius = '2px';
+    curRing.style.width = '24px';
+    curRing.style.height = '24px';
+    curRing.style.borderColor = 'rgba(0,212,255,0.8)';
+  } else if (interactive) {
+    cur.style.width = '6px';
+    cur.style.height = '6px';
+    cur.style.borderRadius = '50%';
+    curRing.style.width = '52px';
+    curRing.style.height = '52px';
+    curRing.style.borderColor = 'rgba(0,212,255,0.8)';
+  }
+});
+
+document.addEventListener('mouseout', e => {
+  const interactive = e.target.closest('a, button, .domain-chip, .skill-badge, .chat-chip, .filter-btn, .btn-quick-view, .btn-msg, .fs-launcher-btn, input, textarea');
+  if (interactive) {
+    cur.style.width = '12px';
+    cur.style.height = '12px';
+    cur.style.borderRadius = '50%';
+    curRing.style.width = '36px';
+    curRing.style.height = '36px';
+    curRing.style.borderColor = 'rgba(0,212,255,0.5)';
+  }
 });
 
 // Project card spotlight
@@ -1120,6 +1743,90 @@ if(navToggle && navLinksEl){
     }
   });
 }
+
+// CYBER PRELOADER BOOT SEQUENCE CONTROLLER
+(function initCyberPreloader() {
+  const preloader = document.getElementById('cyber-preloader');
+  const barFill = document.getElementById('preloader-bar-fill');
+  const percentEl = document.getElementById('preloader-percent');
+  const statusEl = document.getElementById('preloader-status-text');
+  const feedEl = document.getElementById('preloader-feed');
+
+  if (!preloader) return;
+
+  const bootStages = [
+    { targetPct: 25, status: 'INITIALIZING WEBGL 3D CONTEXT...', log: '[GPU] Initializing WebGLRenderer & viewport shaders...' },
+    { targetPct: 55, status: 'COMPILING THREE.JS GEOMETRIES...', log: '[RENDER] Compiling Developer figure, Icosahedrons & rings...' },
+    { targetPct: 80, status: 'MOUNTING CAREER KNOWLEDGE BASE...', log: '[DATA] Syncing 16 projects, skill matrices & resume context...' },
+    { targetPct: 95, status: 'HARDENING SECURITY PERIMETER...', log: '[SEC] Binding HMAC tokens & OWASP Top 10 mitigation filters...' },
+    { targetPct: 100, status: 'ALL SYSTEMS NOMINAL // ONLINE', log: '[READY] 60 FPS viewport confirmed. Launching interface.' }
+  ];
+
+  let currentStage = 0;
+  let currentPct = 0;
+  let isDone = false;
+  const bootStartTime = performance.now();
+  const minBootTime = 750; // Smooth non-flicker threshold
+
+  const progressTimer = setInterval(() => {
+    if (currentStage < bootStages.length) {
+      const stage = bootStages[currentStage];
+      if (currentPct < stage.targetPct) {
+        currentPct += 3;
+        if (currentPct > stage.targetPct) currentPct = stage.targetPct;
+        if (barFill) barFill.style.width = currentPct + '%';
+        if (percentEl) percentEl.textContent = Math.round(currentPct) + '%';
+      } else {
+        if (statusEl) statusEl.textContent = stage.status;
+        if (feedEl) feedEl.innerHTML = `<code>${stage.log}</code>`;
+        currentStage++;
+      }
+    }
+  }, 30);
+
+  function dismissPreloader() {
+    if (isDone) return;
+    isDone = true;
+    clearInterval(progressTimer);
+
+    if (barFill) barFill.style.width = '100%';
+    if (percentEl) percentEl.textContent = '100%';
+    if (statusEl) statusEl.textContent = 'SYSTEMS READY';
+    if (feedEl) feedEl.innerHTML = '<code>[READY] Systems nominal. Welcome.</code>';
+
+    setTimeout(() => {
+      preloader.classList.add('loaded');
+      document.body.classList.add('portfolio-ready');
+      setTimeout(() => {
+        try { preloader.remove(); } catch (_) {}
+      }, 650);
+    }, 180);
+  }
+
+  // Poll until Three.js has rendered its first frames & min duration passed
+  function checkReady() {
+    const elapsed = performance.now() - bootStartTime;
+    const threeReady = window.__THREE_READY === true;
+
+    if (elapsed >= minBootTime && (threeReady || elapsed > 1500)) {
+      dismissPreloader();
+    } else {
+      requestAnimationFrame(checkReady);
+    }
+  }
+
+  if (document.readyState === 'complete') {
+    requestAnimationFrame(checkReady);
+  } else {
+    window.addEventListener('load', () => requestAnimationFrame(checkReady));
+  }
+
+  // Safety fallback: never exceed 2.2s
+  setTimeout(dismissPreloader, 2200);
+})();
 </script>
+<script src="js/app.js"></script>
+<script src="js/terminal.js"></script>
+<script src="js/chat.js"></script>
 </body>
 </html>

@@ -1,0 +1,67 @@
+{
+  "cybersecurity": {
+    "title": "Cybersecurity (Primary Career Domain)",
+    "subtitle": "VAPT · Ethical Hacking · Secure API Design · Cryptography",
+    "icon": "🛡️",
+    "badgeColor": "purple",
+    "skills": [
+      "Vulnerability Assessment & Penetration Testing (VAPT)",
+      "OWASP Top 10 Mitigation",
+      "Ethical Hacking & Reconnaissance",
+      "Burp Suite Pro & Nmap",
+      "Kali Linux & VM Environments",
+      "Secure Coding Awareness & Sanitization",
+      "JWT Authentication & Session Hardening",
+      "ECDSA secp256k1 & SHA-256 Ledger Security",
+      "Adversarial Testing & Exploit Simulation",
+      "Linux Kernel Hardening & ZTNA"
+    ]
+  },
+  "fullstack": {
+    "title": "Full-Stack Engineering",
+    "subtitle": "Frontend, Backend, Databases & Mobile/Desktop",
+    "icon": "⚡",
+    "badgeColor": "yellow",
+    "skills": [
+      "Frontend: React 18/19, Next.js 16, TypeScript, Vite",
+      "State & Routing: TanStack Start, TanStack Router, TanStack Query",
+      "Styling: Tailwind CSS v4, shadcn/ui, Radix UI, Framer Motion",
+      "Backend: Node.js, Express, Python (FastAPI, Django)",
+      "Databases: PostgreSQL, Supabase, Neon DB, MongoDB, Redis",
+      "ORMs: Prisma ORM, Drizzle ORM",
+      "Real-time & Queues: Socket.IO, BullMQ, Upstash Redis",
+      "Edge & Serverless: Cloudflare Workers, Cloudflare Pages (Nitro), Vercel",
+      "Cross-Platform: Capacitor (Android/iOS), Tauri (Desktop)",
+      "Payments: Cashfree Payment Gateway, Razorpay"
+    ]
+  },
+  "aiml": {
+    "title": "Data Science, ML & Generative AI",
+    "subtitle": "Predictive Analytics, Supervised Learning & LLM Integration",
+    "icon": "🤖",
+    "badgeColor": "green",
+    "skills": [
+      "Python: Scikit-learn, XGBoost, Pandas, NumPy, StandardScaler",
+      "Supervised & Unsupervised Learning Architectures",
+      "Zero-Leakage ML Preprocessing Pipelines",
+      "ROC/AUC Analysis & Cross-Validation",
+      "Google Gemini 2.5 & Flash API Integration",
+      "AI Counselor & Recommender Logic",
+      "Exploratory Data Analysis (EDA) & Data Cleansing",
+      "Bioinformatics: BioPython & FASTA Sequence Analysis"
+    ]
+  },
+  "tools": {
+    "title": "Tools, Platforms & Languages",
+    "subtitle": "Developer Toolchain, Cloud Infrastructure & Version Control",
+    "icon": "🔧",
+    "badgeColor": "blue",
+    "skills": [
+      "Languages: Python, JavaScript, TypeScript, SQL, HTML5, CSS3",
+      "Cloud & Hosting: Supabase, Firebase, AWS S3, Render, Vercel, Cloudflare",
+      "Tools: Git, GitHub, Postman, Docker, Vite, Vitest",
+      "Libraries: Three.js, Recharts, KaTeX, Fuse.js, jsPDF, html5-qrcode",
+      "Languages: English (Fluent), Kannada (Native), Hindi (Professional)"
+    ]
+  }
+}

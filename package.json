@@ -1,0 +1,32 @@
+{
+  "name": "rahul-portfolio-fullstack",
+  "version": "2.0.0",
+  "description": "Full-Stack Portfolio and API for Rahul A — Software, AI & Cybersecurity Engineer",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test"
+  },
+  "keywords": [
+    "portfolio",
+    "fullstack",
+    "express",
+    "cybersecurity",
+    "ai",
+    "threejs",
+    "rest-api"
+  ],
+  "author": "Rahul A <rahuldheeraj.anil@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "nodemailer": "^6.10.0",
+    "pdf-parse": "^2.4.5"
+  }
+}
